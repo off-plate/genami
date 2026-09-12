@@ -377,6 +377,7 @@
   /* ============================================================
      DASHBOARD — Genami (Serif Acid Console)
      ============================================================ */
+  #app{min-height:100vh;min-height:100svh;background:#F1F2EE;}
   #app[hidden]{display:none;}
   *{box-sizing:border-box;}
   .gd h1, .gd h2, .gd h3, .gd h4{margin:0;}
@@ -436,8 +437,8 @@
   .gd .av{width:42px;height:42px;border-radius:11px;overflow:hidden;background:var(--blue);display:flex;align-items:flex-end;justify-content:center;border:none;padding:0;}
 
   /* hero: serif on acid */
-  .gd .hero{background:var(--acid);border-radius:var(--r);padding:32px 30px 28px;display:grid;grid-template-columns:1.3fr auto;gap:28px;align-items:end;min-height:0;height:auto;}
-  .gd .hero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,4.2vw,54px);line-height:0.98;max-width:16ch;}
+  .gd .hero{background:var(--acid);border-radius:var(--r);padding:32px 30px 28px;display:grid;grid-template-columns:1.3fr auto;gap:28px;align-items:end;min-height:0;height:auto;text-align:left;}
+  .gd .hero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,4.2vw,54px);line-height:0.98;max-width:16ch;color:var(--ink);margin:0;}
   .gd .hero h1 em{font-style:italic;}
   .gd .hero p{margin:14px 0 0;font-size:13px;font-weight:500;color:rgba(17,18,20,0.6);max-width:44ch;}
   .gd .hero .fig{display:flex;gap:30px;}
@@ -1315,8 +1316,8 @@
     if(p==="home"||p==="courses")requestAnimationFrame(fill);
     if(p==="tutor")openChat();
   }
-  document.getElementById("nav").addEventListener("click",function(e){var b=e.target.closest("button[data-p]");if(b)go(b.dataset.p);});
-  document.addEventListener("click",function(e){var g=e.target.closest("[data-go]");if(g)go(g.dataset.go);});
+  document.getElementById("nav").addEventListener("click",function(e){var b=e.target.closest("button[data-p]");if(b)nav(b.dataset.p);});
+  document.addEventListener("click",function(e){var g=e.target.closest("[data-go]");if(g)nav(g.dataset.go);});
   function wire(bi,pi){var b=document.getElementById(bi),p=document.getElementById(pi);
     b.addEventListener("click",function(e){e.stopPropagation();var o=p.classList.contains("open");
       document.querySelectorAll(".pop.open").forEach(function(x){x.classList.remove("open");});if(!o)p.classList.add("open");});
@@ -1358,15 +1359,44 @@
     window.scrollTo(0, 0);
   }
 
+  /* ---------- hash routing: #/ = site, #/dashboard[/view] = console ---------- */
+  var VIEWS = ["home","courses","library","live","work","certs","tutor","settings"];
+  var siteScroll = 0;
+  function nav(p){
+    location.hash = (p === "home") ? "#/dashboard" : "#/dashboard/" + p;
+  }
+  function route(){
+    var h = location.hash.replace(/^#\/?/, "");
+    if(h === "dashboard" || h.indexOf("dashboard/") === 0){
+      var v = h.slice(10) || "home";
+      if(VIEWS.indexOf(v) < 0) v = "home";
+      if(app.hidden){
+        siteScroll = window.scrollY;
+        showApp();
+      }
+      go(v);
+      document.title = "Genami · " + (TT[v] || "Overview");
+    }else{
+      if(!app.hidden){
+        showSite();
+        document.title = "Genami";
+        if(siteScroll){ window.scrollTo(0, siteScroll); }
+      }
+      siteScroll = 0;
+    }
+  }
+  window.addEventListener("hashchange", route);
+  route();
+
   document.querySelectorAll(".pill-ghost, .pill-accent").forEach(function(el){
     el.addEventListener("click", function(e){
       if(el.closest("#app")) return;
       e.preventDefault();
       setDrawer(false);
-      showApp();
+      location.hash = "#/dashboard";
     });
   });
-  document.getElementById("dLogo").addEventListener("click", showSite);
+  document.getElementById("dLogo").addEventListener("click", function(){ location.hash = "#/"; });
 
   /* ==========================================================
      AI TUTOR — real Claude calls via the sample capability

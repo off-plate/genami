@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Genami · Design Unification · 3 Directions</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Gabarito:wght@400;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#0C0F0E;color:#E9EEEC;font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  button{font-family:inherit;cursor:pointer;}
+  .serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400;}
+
+  /* ---------- proposal chrome ---------- */
+  .top{padding:34px clamp(20px,4vw,64px) 8px;}
+  .top h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(30px,3.4vw,44px);}
+  .top p{margin-top:10px;font-size:14.5px;line-height:1.6;color:rgba(233,238,236,0.62);max-width:78ch;}
+  .top .jump{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;}
+  .top .jump a{font-size:12.5px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#0C0F0E;background:#E9EEEC;border-radius:99px;padding:8px 16px;text-decoration:none;}
+  .top .jump a:hover{background:#fff;}
+
+  .note{margin:18px clamp(20px,4vw,64px) 0;padding:14px 18px;border:1px solid rgba(233,238,236,0.14);border-radius:14px;font-size:13px;line-height:1.6;color:rgba(233,238,236,0.66);}
+  .note b{color:#E9EEEC;}
+
+  /* ---------- today: live iframes ---------- */
+  .today{margin:26px clamp(20px,4vw,64px) 0;}
+  .today h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:24px;margin-bottom:12px;}
+  .frames{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .frames .f{border:1px solid rgba(233,238,236,0.14);border-radius:16px;overflow:hidden;background:#111;}
+  .frames .f header{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(233,238,236,0.55);}
+  .frames iframe{width:100%;height:560px;border:none;background:#fff;}
+  @media (max-width:980px){.frames{grid-template-columns:1fr;}}
+
+  /* ---------- variant sections ---------- */
+  .variant{margin:56px 0 0;padding:40px clamp(20px,4vw,64px) 48px;border-top:1px solid rgba(233,238,236,0.1);}
+  .vhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px 22px;margin-bottom:6px;}
+  .vhead .tag{font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:6px 12px;border-radius:99px;}
+  .vhead h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(26px,2.8vw,36px);}
+  .thesis{font-size:15px;line-height:1.65;color:rgba(233,238,236,0.68);max-width:82ch;margin-bottom:16px;}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+  .chip{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-weight:600;color:rgba(233,238,236,0.75);border:1px solid rgba(233,238,236,0.16);border-radius:99px;padding:5px 12px 5px 6px;}
+  .chip i{width:16px;height:16px;border-radius:50%;display:block;}
+  .changes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px 22px;margin-bottom:22px;font-size:13px;line-height:1.55;color:rgba(233,238,236,0.62);}
+  .changes b{color:#E9EEEC;font-weight:600;}
+
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media (max-width:1080px){.pair{grid-template-columns:1fr;}}
+  .panel{border-radius:18px;overflow:hidden;border:1px solid rgba(233,238,236,0.12);}
+  .panel > header{display:flex;justify-content:space-between;padding:10px 16px;font-size:10.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(233,238,236,0.5);background:rgba(0,0,0,0.35);}
+  .mock{height:430px;overflow:hidden;position:relative;}
+
+  /* =========================================================
+     VARIANT A — ACID ON INK  (dark base, acid accent)
+     ========================================================= */
+  .a-home,.a-app{background:#0C1210;color:#EEF3F1;font-family:'DM Sans',sans-serif;height:100%;display:flex;flex-direction:column;}
+  .a-bar{display:flex;align-items:center;gap:18px;padding:14px 22px;border-bottom:1px solid rgba(238,243,241,0.08);}
+  .a-logo{font-family:'Instrument Serif',serif;font-size:19px;display:flex;align-items:center;gap:8px;}
+  .a-logo i{width:18px;height:18px;border-radius:5px;background:#E8F94F;display:block;}
+  .a-links{display:flex;gap:16px;font-size:12.5px;color:rgba(238,243,241,0.55);}
+  .a-pill{margin-left:auto;background:#E8F94F;color:#10160A;border:none;border-radius:99px;padding:8px 18px;font-size:12.5px;font-weight:600;}
+  .a-ghost{background:none;border:1px solid rgba(238,243,241,0.2);color:#EEF3F1;border-radius:99px;padding:8px 18px;font-size:12.5px;font-weight:500;}
+  .a-hero{padding:40px 34px 30px;display:flex;flex-direction:column;gap:14px;align-items:flex-start;}
+  .a-hero h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(28px,3vw,40px);line-height:1.05;max-width:16ch;}
+  .a-hero h3 em{font-style:italic;color:#E8F94F;}
+  .a-hero p{font-size:13px;color:rgba(238,243,241,0.55);max-width:48ch;line-height:1.55;}
+  .a-search{display:flex;gap:8px;width:100%;max-width:420px;}
+  .a-search .in{flex:1;display:flex;align-items:center;gap:8px;border:1px solid rgba(238,243,241,0.16);background:rgba(238,243,241,0.05);border-radius:99px;padding:0 16px;height:40px;font-size:12.5px;color:rgba(238,243,241,0.4);}
+  .a-search .go{height:40px;padding:0 18px;border:none;border-radius:99px;background:#E8F94F;color:#10160A;font-size:12.5px;font-weight:600;}
+  .a-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:6px 34px 26px;}
+  .a-card{background:#141C19;border:1px solid rgba(238,243,241,0.08);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:8px;min-height:120px;}
+  .a-card .rt{font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#E8F94F;}
+  .a-card h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:19px;line-height:1.15;}
+  .a-card .meta{margin-top:auto;font-size:11px;color:rgba(238,243,241,0.45);display:flex;justify-content:space-between;}
+  .a-card.hot{background:#E8F94F;color:#10160A;border-color:#E8F94F;}
+  .a-card.hot .rt,.a-card.hot .meta{color:rgba(16,22,10,0.6);}
+
+  .a-app{flex-direction:row;}
+  .a-side{width:168px;flex-shrink:0;background:#0A0F0D;border-right:1px solid rgba(238,243,241,0.08);padding:18px 12px;display:flex;flex-direction:column;gap:4px;}
+  .a-side .lg{font-family:'Instrument Serif',serif;font-size:17px;padding:0 8px 12px;}
+  .a-side .lg small{display:block;font-family:'DM Sans',sans-serif;font-size:8px;font-weight:700;letter-spacing:0.22em;color:#E8F94F;text-transform:uppercase;}
+  .a-nav{display:flex;align-items:center;gap:9px;font-size:12px;color:rgba(238,243,241,0.5);padding:8px 10px;border-radius:9px;}
+  .a-nav.on{background:#E8F94F;color:#10160A;font-weight:600;}
+  .a-nav i{width:12px;height:12px;border:1.4px solid currentColor;border-radius:3px;display:block;}
+  .a-main{flex:1;display:flex;flex-direction:column;gap:10px;padding:14px 16px;min-width:0;}
+  .a-top{display:flex;align-items:center;gap:10px;background:#141C19;border:1px solid rgba(238,243,241,0.08);border-radius:12px;padding:9px 14px;font-size:12.5px;}
+  .a-top .q{margin-left:auto;border:1px solid rgba(238,243,241,0.12);background:rgba(238,243,241,0.04);border-radius:8px;height:26px;width:150px;font-size:11px;color:rgba(238,243,241,0.35);display:flex;align-items:center;padding:0 10px;}
+  .a-heroc{background:#141C19;border:1px solid rgba(238,243,241,0.08);border-radius:14px;padding:20px;display:flex;justify-content:space-between;align-items:flex-end;gap:14px;}
+  .a-heroc h5{font-family:'Instrument Serif',serif;font-weight:400;font-size:22px;line-height:1.05;max-width:15ch;}
+  .a-heroc h5 em{font-style:italic;color:#E8F94F;}
+  .a-fig{display:flex;gap:18px;text-align:right;}
+  .a-fig b{font-family:'Instrument Serif',serif;font-weight:400;font-size:24px;display:block;}
+  .a-fig span{font-size:8.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(238,243,241,0.45);}
+  .a-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .a-tile{background:#141C19;border:1px solid rgba(238,243,241,0.08);border-radius:12px;padding:13px;min-height:86px;display:flex;flex-direction:column;}
+  .a-tile.hl{background:#E8F94F;color:#10160A;border-color:#E8F94F;}
+  .a-tile h6{font-family:'Instrument Serif',serif;font-weight:400;font-size:15.5px;line-height:1.15;}
+  .a-tile small{margin-top:auto;font-size:10px;opacity:0.55;}
+  .a-tile .bar{height:3px;border-radius:4px;background:rgba(238,243,241,0.12);margin-top:8px;position:relative;}
+  .a-tile .bar i{position:absolute;inset:0;right:45%;background:#E8F94F;border-radius:4px;}
+  .a-tile.hl .bar{background:rgba(16,22,10,0.15);}
+  .a-tile.hl .bar i{background:#10160A;}
+
+  /* =========================================================
+     VARIANT B — PAPER & INK  (light base, acid marker)
+     ========================================================= */
+  .b-home,.b-app{background:#F1F2EE;color:#111214;font-family:'Space Grotesk',sans-serif;height:100%;display:flex;flex-direction:column;}
+  .b-bar{display:flex;align-items:center;gap:18px;padding:14px 22px;border-bottom:1px solid #E2E4DE;background:#F1F2EE;}
+  .b-logo{font-family:'Instrument Serif',serif;font-size:19px;display:flex;align-items:center;gap:8px;}
+  .b-logo i{width:18px;height:18px;border-radius:5px;background:#111214;display:block;}
+  .b-links{display:flex;gap:16px;font-size:12.5px;color:#6B6E74;}
+  .b-pill{margin-left:auto;background:#FF4612;color:#fff;border:none;border-radius:99px;padding:8px 18px;font-size:12.5px;font-weight:600;}
+  .b-ghost{background:none;border:1px solid #D6D8D2;color:#111214;border-radius:99px;padding:8px 18px;font-size:12.5px;font-weight:500;}
+  .b-hero{padding:42px 34px 28px;display:flex;flex-direction:column;gap:14px;align-items:flex-start;}
+  .b-hero h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(28px,3vw,40px);line-height:1.06;max-width:17ch;}
+  .b-hero h3 mark{background:#E8F94F;padding:0 8px;border-radius:6px;}
+  .b-hero p{font-size:13px;color:#6B6E74;max-width:48ch;line-height:1.55;}
+  .b-search{display:flex;gap:8px;width:100%;max-width:420px;}
+  .b-search .in{flex:1;display:flex;align-items:center;gap:8px;border:1px solid #D6D8D2;background:#fff;border-radius:12px;padding:0 16px;height:42px;font-size:12.5px;color:#9CA0A6;}
+  .b-search .go{height:42px;padding:0 18px;border:none;border-radius:12px;background:#111214;color:#fff;font-size:12.5px;font-weight:600;}
+  .b-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:6px 34px 26px;}
+  .b-card{background:#fff;border:1px solid #E2E4DE;border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:8px;min-height:120px;}
+  .b-card .rt{font-size:10.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FF4612;}
+  .b-card h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:19px;line-height:1.15;}
+  .b-card .meta{margin-top:auto;font-size:11px;color:#9CA0A6;display:flex;justify-content:space-between;}
+  .b-card.ink{background:#111214;color:#fff;border-color:#111214;}
+  .b-card.ink .rt,.b-card.ink .meta{color:rgba(255,255,255,0.55);}
+
+  .b-app{flex-direction:row;}
+  .b-side{width:168px;flex-shrink:0;background:#111214;color:#fff;padding:18px 12px;display:flex;flex-direction:column;gap:4px;border-radius:0 18px 18px 0;}
+  .b-side .lg{font-family:'Instrument Serif',serif;font-size:17px;padding:0 8px 12px;}
+  .b-side .lg small{display:block;font-family:'Space Grotesk',sans-serif;font-size:8px;font-weight:700;letter-spacing:0.22em;color:#E8F94F;text-transform:uppercase;}
+  .b-nav{display:flex;align-items:center;gap:9px;font-size:12px;color:rgba(255,255,255,0.5);padding:8px 10px;border-radius:9px;}
+  .b-nav.on{background:#E8F94F;color:#111214;font-weight:600;}
+  .b-nav i{width:12px;height:12px;border:1.4px solid currentColor;border-radius:3px;display:block;}
+  .b-main{flex:1;display:flex;flex-direction:column;gap:10px;padding:14px 16px;min-width:0;}
+  .b-top{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #E2E4DE;border-radius:12px;padding:9px 14px;font-size:12.5px;}
+  .b-top .q{margin-left:auto;border:1px solid #E2E4DE;background:#F1F2EE;border-radius:8px;height:26px;width:150px;font-size:11px;color:#9CA0A6;display:flex;align-items:center;padding:0 10px;}
+  .b-heroc{background:#E8F94F;border-radius:14px;padding:20px;display:flex;justify-content:space-between;align-items:flex-end;gap:14px;}
+  .b-heroc h5{font-family:'Instrument Serif',serif;font-weight:400;font-size:22px;line-height:1.05;max-width:15ch;}
+  .b-heroc h5 em{font-style:italic;}
+  .b-fig{display:flex;gap:18px;text-align:right;}
+  .b-fig b{font-family:'Instrument Serif',serif;font-weight:400;font-size:24px;display:block;}
+  .b-fig span{font-size:8.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(17,18,20,0.5);}
+  .b-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .b-tile{background:#fff;border:1px solid #E2E4DE;border-radius:12px;padding:13px;min-height:86px;display:flex;flex-direction:column;}
+  .b-tile.ink{background:#111214;color:#fff;border-color:#111214;}
+  .b-tile h6{font-family:'Instrument Serif',serif;font-weight:400;font-size:15.5px;line-height:1.15;}
+  .b-tile small{margin-top:auto;font-size:10px;opacity:0.55;}
+  .b-tile .bar{height:3px;border-radius:4px;background:#E9EBE5;margin-top:8px;position:relative;}
+  .b-tile .bar i{position:absolute;inset:0;right:45%;background:#FF4612;border-radius:4px;}
+  .b-tile.ink .bar{background:rgba(255,255,255,0.16);}
+  .b-tile.ink .bar i{background:#E8F94F;}
+
+  /* =========================================================
+     VARIANT C — QUIET EDITORIAL  (cream, deep green, one accent)
+     ========================================================= */
+  .c-home,.c-app{background:#F7F6F1;color:#17251F;font-family:'Hanken Grotesk',sans-serif;height:100%;display:flex;flex-direction:column;}
+  .c-bar{display:flex;align-items:center;gap:18px;padding:14px 22px;border-bottom:1px solid #E5E3DA;}
+  .c-logo{font-family:'Instrument Serif',serif;font-size:19px;display:flex;align-items:center;gap:8px;}
+  .c-logo i{width:18px;height:18px;border-radius:50%;background:#1E4438;display:block;}
+  .c-links{display:flex;gap:16px;font-size:12.5px;color:#6E7A72;}
+  .c-pill{margin-left:auto;background:#1E4438;color:#F7F6F1;border:none;border-radius:8px;padding:9px 18px;font-size:12.5px;font-weight:600;}
+  .c-ghost{background:none;border:1px solid #D9D7CC;color:#17251F;border-radius:8px;padding:9px 18px;font-size:12.5px;font-weight:500;}
+  .c-hero{padding:44px 34px 28px;display:flex;flex-direction:column;gap:14px;align-items:flex-start;}
+  .c-hero h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(28px,3vw,40px);line-height:1.08;max-width:18ch;}
+  .c-hero h3 em{font-style:italic;color:#1E4438;}
+  .c-hero p{font-size:13px;color:#6E7A72;max-width:48ch;line-height:1.6;}
+  .c-search{display:flex;gap:8px;width:100%;max-width:420px;}
+  .c-search .in{flex:1;display:flex;align-items:center;gap:8px;border:1px solid #D9D7CC;background:#fff;border-radius:8px;padding:0 16px;height:42px;font-size:12.5px;color:#A3ACA5;}
+  .c-search .go{height:42px;padding:0 18px;border:none;border-radius:8px;background:#1E4438;color:#F7F6F1;font-size:12.5px;font-weight:600;}
+  .c-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:6px 34px 26px;}
+  .c-card{background:#fff;border:1px solid #E5E3DA;border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;min-height:120px;}
+  .c-card .rt{font-size:10.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#1E4438;}
+  .c-card h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:19px;line-height:1.18;}
+  .c-card .meta{margin-top:auto;font-size:11px;color:#8B948C;display:flex;justify-content:space-between;}
+  .c-card.tint{background:#EBEFE6;border-color:#DCE2D2;}
+
+  .c-app{flex-direction:row;}
+  .c-side{width:168px;flex-shrink:0;background:#1E4438;color:#F7F6F1;padding:18px 12px;display:flex;flex-direction:column;gap:4px;}
+  .c-side .lg{font-family:'Instrument Serif',serif;font-size:17px;padding:0 8px 12px;}
+  .c-side .lg small{display:block;font-family:'Hanken Grotesk',sans-serif;font-size:8px;font-weight:600;letter-spacing:0.22em;color:#B8CCAE;text-transform:uppercase;}
+  .c-nav{display:flex;align-items:center;gap:9px;font-size:12px;color:rgba(247,246,241,0.62);padding:8px 10px;border-radius:8px;}
+  .c-nav.on{background:#F7F6F1;color:#17251F;font-weight:600;}
+  .c-nav i{width:12px;height:12px;border:1.4px solid currentColor;border-radius:3px;display:block;}
+  .c-main{flex:1;display:flex;flex-direction:column;gap:10px;padding:14px 16px;min-width:0;}
+  .c-top{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #E5E3DA;border-radius:10px;padding:9px 14px;font-size:12.5px;}
+  .c-top .q{margin-left:auto;border:1px solid #E5E3DA;background:#F7F6F1;border-radius:7px;height:26px;width:150px;font-size:11px;color:#A3ACA5;display:flex;align-items:center;padding:0 10px;}
+  .c-heroc{background:#1E4438;color:#F7F6F1;border-radius:12px;padding:20px;display:flex;justify-content:space-between;align-items:flex-end;gap:14px;}
+  .c-heroc h5{font-family:'Instrument Serif',serif;font-weight:400;font-size:22px;line-height:1.08;max-width:15ch;}
+  .c-heroc h5 em{font-style:italic;color:#B8CCAE;}
+  .c-fig{display:flex;gap:18px;text-align:right;}
+  .c-fig b{font-family:'Instrument Serif',serif;font-weight:400;font-size:24px;display:block;}
+  .c-fig span{font-size:8.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(247,246,241,0.55);}
+  .c-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .c-tile{background:#fff;border:1px solid #E5E3DA;border-radius:10px;padding:13px;min-height:86px;display:flex;flex-direction:column;}
+  .c-tile.tint{background:#EBEFE6;border-color:#DCE2D2;}
+  .c-tile h6{font-family:'Instrument Serif',serif;font-weight:400;font-size:15.5px;line-height:1.18;}
+  .c-tile small{margin-top:auto;font-size:10px;color:#8B948C;}
+  .c-tile .bar{height:3px;border-radius:4px;background:#E9E7DD;margin-top:8px;position:relative;}
+  .c-tile .bar i{position:absolute;inset:0;right:45%;background:#1E4438;border-radius:4px;}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <h1>Genami, one design language</h1>
+  <p>Right now the homepage is a dark sage editorial site and the console is a light acid-yellow product. Three directions below, each one applied to both surfaces so you can judge the system, not the screen. Same content in every mock: the hero line, a course row, the sidebar, the overview header and your stat chips.</p>
+  <div class="jump">
+    <a href="#today">See them side by side (live)</a>
+    <a href="#va">A · Acid on Ink</a>
+    <a href="#vb">B · Paper &amp; Ink</a>
+    <a href="#vc">C · Quiet Editorial</a>
+  </div>
+</div>
+
+<div class="note"><b>How to read this:</b> the "today" section runs the real homepage and the real console in two frames next to each other. Each direction then shows the same two surfaces reskinned. Nothing here touches the production page; this file is just the proposal.</div>
+
+<section class="today" id="today">
+  <h2>Today: two products, one logo</h2>
+  <div class="frames">
+    <div class="f"><header><span>Homepage · now</span><span>dark / sage</span></header><iframe src="index.html#/"></iframe></div>
+    <div class="f"><header><span>Console · now</span><span>light / acid</span></header><iframe src="index.html#/dashboard"></iframe></div>
+  </div>
+</section>
+
+<!-- ==================== VARIANT A ==================== -->
+<section class="variant" id="va">
+  <div class="vhead"><span class="tag" style="background:#E8F94F;color:#10160A;">Direction A</span><h2>Acid on Ink</h2></div>
+  <p class="thesis">The homepage wins. Both surfaces live on the dark base it already has, and the console's acid yellow becomes the single system accent: active states, highlights, progress. Red is demoted to tiny signals only. The product feels like one serious console you log into, and the marketing page is its front door.</p>
+  <div class="chips">
+    <span class="chip"><i style="background:#0C1210;"></i>Base #0C1210</span>
+    <span class="chip"><i style="background:#141C19;"></i>Surface #141C19</span>
+    <span class="chip"><i style="background:#E8F94F;"></i>Accent #E8F94F</span>
+    <span class="chip"><i style="background:#FF4612;"></i>Signal #FF4612</span>
+    <span class="chip"><i style="background:#EEF3F1;"></i>Text #EEF3F1</span>
+  </div>
+  <div class="changes">
+    <div><b>Homepage:</b> barely changes. Gains acid highlights on key words and buttons instead of coral.</div>
+    <div><b>Console:</b> flips dark. Cards, sidebar and topbar become surfaces on ink; acid marks what's active.</div>
+    <div><b>Type:</b> Instrument Serif display + DM Sans everywhere. Space Grotesk and Gabarito retire.</div>
+    <div><b>Vibe:</b> premium tool, night shift, "professional console for AI skills".</div>
+  </div>
+  <div class="pair">
+    <div class="panel"><header><span>Homepage</span><span>Direction A</span></header>
+      <div class="mock"><div class="a-home">
+        <div class="a-bar">
+          <span class="a-logo"><i></i>Genami</span>
+          <span class="a-links"><span>Courses</span><span>Pathways</span><span>For Business</span></span>
+          <button class="a-ghost">Log In</button><button class="a-pill">Join for Free</button>
+        </div>
+        <div class="a-hero">
+          <h3>Master the skills that <em>shape the future.</em></h3>
+          <p>Practical AI courses and certifications for people who run businesses, not codebases.</p>
+          <div class="a-search"><span class="in">Search for courses or certifications...</span><button class="go">Search</button></div>
+        </div>
+        <div class="a-cards">
+          <div class="a-card hot"><span class="rt">Prompting</span><h4>Prompting Without the Jargon</h4><span class="meta"><span>4.9 (1420)</span><span>Free</span></span></div>
+          <div class="a-card"><span class="rt">Marketing</span><h4>Make a Product Photo for Free</h4><span class="meta"><span>4.7 (980)</span><span>Free</span></span></div>
+          <div class="a-card"><span class="rt">Data</span><h4>Your Data, Their Model</h4><span class="meta"><span>4.9 (540)</span><span>290 Kč</span></span></div>
+        </div>
+      </div></div>
+    </div>
+    <div class="panel"><header><span>Console</span><span>Direction A</span></header>
+      <div class="mock"><div class="a-app">
+        <div class="a-side">
+          <span class="lg">Genami<small>Console</small></span>
+          <span class="a-nav on"><i></i>Overview</span>
+          <span class="a-nav"><i></i>Courses</span>
+          <span class="a-nav"><i></i>Library</span>
+          <span class="a-nav"><i></i>Live</span>
+          <span class="a-nav"><i></i>Certificates</span>
+        </div>
+        <div class="a-main">
+          <div class="a-top">Overview <span class="q">Search</span></div>
+          <div class="a-heroc">
+            <h5>Master the skills that <em>shape the future.</em></h5>
+            <div class="a-fig"><div><b>54</b><span>Days</span></div><div><b>876</b><span>Points</span></div><div><b>17</b><span>Done</span></div></div>
+          </div>
+          <div class="a-row">
+            <div class="a-tile hl"><h6>Prompting Without the Jargon</h6><span class="bar"><i></i></span><small>Lesson 4 / 5 · 38 min</small></div>
+            <div class="a-tile"><h6>Make a Product Photo for Free</h6><span class="bar"><i></i></span><small>Lesson 1 / 4 · 1h 10</small></div>
+            <div class="a-tile"><h6>Your Data, Their Model</h6><span class="bar"><i></i></span><small>Lesson 2 / 3 · 25 min</small></div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== VARIANT B ==================== -->
+<section class="variant" id="vb">
+  <div class="vhead"><span class="tag" style="background:#E8F94F;color:#10160A;border:1px solid #111214;">Direction B</span><h2>Paper &amp; Ink</h2></div>
+  <p class="thesis">The console wins. The homepage moves into the console's paper world: warm light grey, white cards, ink text, acid as the marker color and red kept for one hot element per view. Cheapest direction to ship, because the console already looks like this; the marketing page is the only real rebuild.</p>
+  <div class="chips">
+    <span class="chip"><i style="background:#F1F2EE;"></i>Base #F1F2EE</span>
+    <span class="chip"><i style="background:#FFFFFF;"></i>Card #FFFFFF</span>
+    <span class="chip"><i style="background:#111214;"></i>Ink #111214</span>
+    <span class="chip"><i style="background:#E8F94F;"></i>Marker #E8F94F</span>
+    <span class="chip"><i style="background:#FF4612;"></i>Hot #FF4612</span>
+  </div>
+  <div class="changes">
+    <div><b>Homepage:</b> full rebuild to light. Hero headline gets an acid marker highlight instead of a dark backdrop.</div>
+    <div><b>Console:</b> stays as is, tightened. It becomes the reference, not the exception.</div>
+    <div><b>Type:</b> Instrument Serif + Space Grotesk (actually loaded, which fixes the current silent fallback).</div>
+    <div><b>Vibe:</b> bright classroom, friendly, day shift, Duolingo-adjacent energy without the toys.</div>
+  </div>
+  <div class="pair">
+    <div class="panel"><header><span>Homepage</span><span>Direction B</span></header>
+      <div class="mock"><div class="b-home">
+        <div class="b-bar">
+          <span class="b-logo"><i></i>Genami</span>
+          <span class="b-links"><span>Courses</span><span>Pathways</span><span>For Business</span></span>
+          <button class="b-ghost">Log In</button><button class="b-pill">Join for Free</button>
+        </div>
+        <div class="b-hero">
+          <h3>Master the skills that <mark>shape the future.</mark></h3>
+          <p>Practical AI courses and certifications for people who run businesses, not codebases.</p>
+          <div class="b-search"><span class="in">Search for courses or certifications...</span><button class="go">Search</button></div>
+        </div>
+        <div class="b-cards">
+          <div class="b-card ink"><span class="rt">Prompting</span><h4>Prompting Without the Jargon</h4><span class="meta"><span>4.9 (1420)</span><span>Free</span></span></div>
+          <div class="b-card"><span class="rt">Marketing</span><h4>Make a Product Photo for Free</h4><span class="meta"><span>4.7 (980)</span><span>Free</span></span></div>
+          <div class="b-card"><span class="rt">Data</span><h4>Your Data, Their Model</h4><span class="meta"><span>4.9 (540)</span><span>290 Kč</span></span></div>
+        </div>
+      </div></div>
+    </div>
+    <div class="panel"><header><span>Console</span><span>Direction B</span></header>
+      <div class="mock"><div class="b-app">
+        <div class="b-side">
+          <span class="lg">Genami<small>Console</small></span>
+          <span class="b-nav on"><i></i>Overview</span>
+          <span class="b-nav"><i></i>Courses</span>
+          <span class="b-nav"><i></i>Library</span>
+          <span class="b-nav"><i></i>Live</span>
+          <span class="b-nav"><i></i>Certificates</span>
+        </div>
+        <div class="b-main">
+          <div class="b-top">Overview <span class="q">Search</span></div>
+          <div class="b-heroc">
+            <h5>Master the skills that <em>shape the future.</em></h5>
+            <div class="b-fig"><div><b>54</b><span>Days</span></div><div><b>876</b><span>Points</span></div><div><b>17</b><span>Done</span></div></div>
+          </div>
+          <div class="b-row">
+            <div class="b-tile"><h6>Prompting Without the Jargon</h6><span class="bar"><i></i></span><small>Lesson 4 / 5 · 38 min</small></div>
+            <div class="b-tile"><h6>Make a Product Photo for Free</h6><span class="bar"><i></i></span><small>Lesson 1 / 4 · 1h 10</small></div>
+            <div class="b-tile ink"><h6>Your Data, Their Model</h6><span class="bar"><i></i></span><small>Lesson 2 / 3 · 25 min</small></div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== VARIANT C ==================== -->
+<section class="variant" id="vc">
+  <div class="vhead"><span class="tag" style="background:#1E4438;color:#F7F6F1;">Direction C</span><h2>Quiet Editorial</h2></div>
+  <p class="thesis">Neither wins; we pick new, calmer clothes. Cream paper, deep forest green, serif display, exactly one accent. No acid, no red, no neon. This is the Masterclass direction: slower, more expensive-feeling, aimed at the 35-plus business owner who finds acid yellow toy-like. Boldest brand move, most rebuild effort.</p>
+  <div class="chips">
+    <span class="chip"><i style="background:#F7F6F1;"></i>Paper #F7F6F1</span>
+    <span class="chip"><i style="background:#1E4438;"></i>Forest #1E4438</span>
+    <span class="chip"><i style="background:#17251F;"></i>Ink #17251F</span>
+    <span class="chip"><i style="background:#B8CCAE;"></i>Sage #B8CCAE</span>
+    <span class="chip"><i style="background:#EBEFE6;"></i>Tint #EBEFE6</span>
+  </div>
+  <div class="changes">
+    <div><b>Homepage:</b> keeps its editorial soul but trades dark neon for cream and forest; closest to today's mood.</div>
+    <div><b>Console:</b> rebuild around white cards on paper with a forest sidebar; calmest learning environment.</div>
+    <div><b>Type:</b> Instrument Serif + Hanken Grotesk, wider line height, more air per element.</div>
+    <div><b>Vibe:</b> quiet authority, "the serious MBA of AI skills", ages well.</div>
+  </div>
+  <div class="pair">
+    <div class="panel"><header><span>Homepage</span><span>Direction C</span></header>
+      <div class="mock"><div class="c-home">
+        <div class="c-bar">
+          <span class="c-logo"><i></i>Genami</span>
+          <span class="c-links"><span>Courses</span><span>Pathways</span><span>For Business</span></span>
+          <button class="c-ghost">Log In</button><button class="c-pill">Join for Free</button>
+        </div>
+        <div class="c-hero">
+          <h3>Master the skills that <em>shape the future.</em></h3>
+          <p>Practical AI courses and certifications for people who run businesses, not codebases.</p>
+          <div class="c-search"><span class="in">Search for courses or certifications...</span><button class="go">Search</button></div>
+        </div>
+        <div class="c-cards">
+          <div class="c-card tint"><span class="rt">Prompting</span><h4>Prompting Without the Jargon</h4><span class="meta"><span>4.9 (1420)</span><span>Free</span></span></div>
+          <div class="c-card"><span class="rt">Marketing</span><h4>Make a Product Photo for Free</h4><span class="meta"><span>4.7 (980)</span><span>Free</span></span></div>
+          <div class="c-card"><span class="rt">Data</span><h4>Your Data, Their Model</h4><span class="meta"><span>4.9 (540)</span><span>290 Kč</span></span></div>
+        </div>
+      </div></div>
+    </div>
+    <div class="panel"><header><span>Console</span><span>Direction C</span></header>
+      <div class="mock"><div class="c-app">
+        <div class="c-side">
+          <span class="lg">Genami<small>Console</small></span>
+          <span class="c-nav on"><i></i>Overview</span>
+          <span class="c-nav"><i></i>Courses</span>
+          <span class="c-nav"><i></i>Library</span>
+          <span class="c-nav"><i></i>Live</span>
+          <span class="c-nav"><i></i>Certificates</span>
+        </div>
+        <div class="c-main">
+          <div class="c-top">Overview <span class="q">Search</span></div>
+          <div class="c-heroc">
+            <h5>Master the skills that <em>shape the future.</em></h5>
+            <div class="c-fig"><div><b>54</b><span>Days</span></div><div><b>876</b><span>Points</span></div><div><b>17</b><span>Done</span></div></div>
+          </div>
+          <div class="c-row">
+            <div class="c-tile tint"><h6>Prompting Without the Jargon</h6><span class="bar"><i></i></span><small>Lesson 4 / 5 · 38 min</small></div>
+            <div class="c-tile"><h6>Make a Product Photo for Free</h6><span class="bar"><i></i></span><small>Lesson 1 / 4 · 1h 10</small></div>
+            <div class="c-tile"><h6>Your Data, Their Model</h6><span class="bar"><i></i></span><small>Lesson 2 / 3 · 25 min</small></div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<div style="height:80px;"></div>
+</body>
+</html>

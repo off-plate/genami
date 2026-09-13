@@ -1,4 +1,9 @@
-<title>Genami</title>
+<title>Genami — Practical AI Courses for SMBs</title>
+<meta name="description" content="Self-paced AI courses and certifications for business owners, freelancers and marketing teams. No coding required.">
+<meta property="og:title" content="Genami — Practical AI Courses for SMBs">
+<meta property="og:description" content="Self-paced AI courses and certifications for business owners, freelancers and marketing teams. No coding required.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://off-plate.github.io/genami/">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Gabarito:wght@400;600;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
 <style>
   :root{
@@ -578,7 +583,8 @@
   }
   @media (max-width:860px){
     .gd{grid-template-columns:1fr;}
-    .gd .side{position:static;min-height:0;flex-direction:row;align-items:center;gap:10px;overflow-x:auto;}
+    .gd .side{position:static;min-height:0;flex-direction:row;align-items:center;gap:10px;overflow-x:auto;scrollbar-width:none;}
+    .gd .side::-webkit-scrollbar{display:none;}
     .gd .nav{flex-direction:row;}
     .gd .nav button span.lb{display:none;}
     .gd .promo{display:none;}
@@ -586,6 +592,11 @@
     .gd .hero .fig div{text-align:left;}
     .gd .cont, .gd .recs{grid-template-columns:1fr;}
     .gd .rail{grid-template-columns:1fr;}
+  }
+  @media (max-width:620px){
+    .gd .search{display:none;}
+    .gd .top .ttl{font-size:19px;}
+    .gd .top{gap:10px;padding:11px 14px;}
   }
   @media (prefers-reduced-motion:reduce){*{transition-duration:0.01ms !important;animation-duration:0.01ms !important;}}
 
@@ -718,7 +729,7 @@
 
     <section class="hero">
       <div class="hero-copy">
-        <h1 class="serif">Master the skills that<br>shape the future.</h1>
+        <h1 class="serif">Master the skills that <br>shape the future.</h1>
         <p class="sub">Self-paced courses and certifications in security, marketing, design, cloud and data.</p>
       </div>
 
@@ -1382,7 +1393,7 @@
     }else{
       if(!app.hidden){
         showSite();
-        document.title = "Genami";
+        document.title = "Genami — Practical AI Courses for SMBs";
         if(siteScroll){ window.scrollTo(0, siteScroll); }
       }
       siteScroll = 0;

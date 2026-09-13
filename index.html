@@ -475,6 +475,8 @@
   .gd .cc:hover .go{transform:translate(2px,-2px) rotate(45deg);}
 
   .gd .recs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .gd .rec{position:relative;}
+  .gd .rec .savebtn{position:absolute;top:16px;right:16px;z-index:2;background:rgba(255,255,255,0.92);border-color:transparent;box-shadow:0 2px 8px rgba(17,18,20,0.18);}
   .gd .rec{border-radius:22px;overflow:hidden;background:var(--page);border:none;text-align:left;color:var(--ink);padding:0;display:flex;flex-direction:column;transition:transform 220ms var(--ease);}
   .gd .rec:hover{transform:translateY(-4px);}
   .gd .thumb{position:relative;height:136px;margin:8px 8px 0;border-radius:16px;background-size:cover;background-position:center;background-color:#DDE0DA;}
@@ -569,6 +571,86 @@
   .gd .pv[hidden]{display:none !important;}
   .gd .lite{padding:28px;border-radius:22px;background:var(--page);color:var(--mute);font-size:13px;line-height:1.6;}
   .gd .lite h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:25px;color:var(--ink);margin-bottom:7px;}
+
+  /* ---------- learning platform pages ---------- */
+  .gd .crumb{display:inline-flex;align-items:center;gap:6px;background:none;border:none;color:var(--mute);font-size:12px;font-weight:600;padding:4px 8px;margin:-4px 0 0 -8px;border-radius:8px;transition:background 150ms ease,color 150ms ease;}
+  .gd .crumb:hover{background:var(--page);color:var(--ink);}
+  .gd .c-hero{border-radius:var(--r);padding:30px 30px 26px;display:flex;flex-direction:column;gap:14px;background:var(--card);border-top:8px solid var(--acid);}
+  .gd .c-hero.t-content{border-top-color:var(--red);}
+  .gd .c-hero.t-marketing{border-top-color:var(--blue);}
+  .gd .c-hero.t-ops{border-top-color:var(--ink);}
+  .gd .c-hero.t-sales{border-top-color:#3E8E5A;}
+  .gd .c-hero.t-data{border-top-color:#8BAEDA;}
+  .gd .c-hero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(28px,3vw,40px);line-height:1.02;color:var(--ink);margin:0;max-width:20ch;}
+  .gd .c-hero .blurb{font-size:14px;line-height:1.6;color:var(--mute);max-width:60ch;margin:0;}
+  .gd .c-meta{display:flex;gap:20px;flex-wrap:wrap;font-size:12px;color:var(--mute);}
+  .gd .c-meta b{display:block;font-family:'Instrument Serif',serif;font-weight:400;font-size:20px;color:var(--ink);line-height:1.1;}
+  .gd .pbtn{background:var(--ink);color:#fff;border-radius:10px;padding:12px 22px;font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:transform 150ms var(--ease),background 160ms ease;}
+  .gd .pbtn:hover{background:#26282C;}
+  .gd .pbtn:active{transform:scale(0.97);}
+  .gd .pbtn.acid{background:var(--acid);color:var(--ink);}
+  .gd .pbtn.acid:hover{background:var(--acid-d);}
+  .gd .pbtn.ghost{background:var(--page);color:var(--ink);}
+  .gd .pbtn.ghost:hover{background:#E7E9E3;}
+  .gd .l-list{display:flex;flex-direction:column;background:var(--card);border-radius:var(--r);padding:10px;}
+  .gd .l-row{display:flex;align-items:center;gap:14px;width:100%;background:none;border:none;text-align:left;padding:14px 14px;border-radius:14px;color:var(--ink);transition:background 150ms ease;}
+  .gd .l-row:hover{background:var(--page);}
+  .gd .l-row + .l-row{border-top:1px solid var(--line);}
+  .gd .l-row .no{font-family:'Instrument Serif',serif;font-size:15px;color:var(--mute);width:26px;flex-shrink:0;}
+  .gd .l-row .ti{flex:1;min-width:0;}
+  .gd .l-row .ti b{display:block;font-size:14.5px;font-weight:600;}
+  .gd .l-row .ti small{font-size:11.5px;color:var(--mute);}
+  .gd .l-row .ck{width:28px;height:28px;border-radius:50%;border:1.6px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:transparent;}
+  .gd .l-row.done .ck{background:var(--acid);border-color:var(--acid);color:var(--ink);}
+  .gd .l-row.done .ti b{color:var(--mute);text-decoration:line-through;text-decoration-thickness:1px;}
+  .gd .lp{border-radius:var(--r);background:var(--card);padding:34px clamp(20px,3vw,44px);}
+  .gd .lp .kicker{font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .gd .lp h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(28px,3.2vw,42px);line-height:1.03;color:var(--ink);margin:12px 0 0;max-width:20ch;}
+  .gd .l-body{margin-top:20px;max-width:72ch;font-size:15px;line-height:1.7;color:#33363B;}
+  .gd .l-body p{margin:0 0 14px;}
+  .gd .l-body ul{margin:0 0 16px;padding-left:20px;display:flex;flex-direction:column;gap:8px;}
+  .gd .l-body b{color:var(--ink);}
+  .gd .l-body .task{background:var(--acid);border-radius:14px;padding:14px 18px;font-size:14px;line-height:1.6;color:var(--ink);}
+  .gd .l-body .task{margin:20px 0 0;}
+  .gd .l-foot{display:flex;align-items:center;gap:10px;margin-top:26px;padding-top:20px;border-top:1px solid var(--line);flex-wrap:wrap;}
+  .gd .l-foot .sp{flex:1;}
+  .gd .doneband{background:var(--acid);border-radius:var(--r);padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .gd .doneband h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;margin:0;}
+  .gd .cert{background:var(--card);border-radius:var(--r);padding:clamp(28px,4vw,54px);text-align:center;border:2px solid var(--acid);}
+  .gd .cert .cl{font-size:10.5px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--mute);}
+  .gd .cert h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1.05;color:var(--ink);margin:14px auto 6px;max-width:22ch;}
+  .gd .cert .who{font-family:'Instrument Serif',serif;font-size:26px;color:var(--ink);margin-top:22px;}
+  .gd .cert .meta{font-size:12px;color:var(--mute);margin-top:18px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap;}
+  .gd .cert .seal{width:52px;height:52px;border-radius:50%;background:var(--acid);color:var(--ink);display:flex;align-items:center;justify-content:center;margin:22px auto 0;}
+  .gd .qdrop{position:absolute;top:calc(100% + 8px);right:0;width:min(360px,86vw);background:var(--card);border-radius:16px;padding:8px;box-shadow:0 20px 50px rgba(17,18,20,0.18);z-index:60;display:none;}
+  .gd .qdrop.open{display:block;}
+  .gd .qdrop .qh{font-size:9.5px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--mute);padding:8px 10px 4px;}
+  .gd .qdrop button{display:flex;align-items:center;gap:10px;width:100%;background:none;border:none;text-align:left;padding:10px;border-radius:10px;font-size:13px;color:var(--ink);}
+  .gd .qdrop button:hover{background:var(--page);}
+  .gd .qdrop button small{color:var(--mute);margin-left:auto;flex-shrink:0;}
+  .gd .asg{background:var(--card);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:12px;}
+  .gd .asg h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:21px;margin:0;}
+  .gd .asg .st{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;}
+  .gd .asg textarea{width:100%;min-height:96px;resize:vertical;border:1px solid var(--line);border-radius:12px;background:var(--page);padding:12px 14px;font-family:inherit;font-size:13.5px;line-height:1.55;color:var(--ink);outline:none;}
+  .gd .asg textarea:focus{border-color:var(--ink);}
+  .gd .set-card{background:var(--card);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:14px;max-width:520px;}
+  .gd .set-card h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:22px;margin:0;}
+  .gd .set-row{display:flex;align-items:center;gap:14px;font-size:13px;color:var(--mute);}
+  .gd .set-row span{width:110px;flex-shrink:0;}
+  .gd .set-row input{flex:1;min-width:0;height:40px;border:1px solid var(--line);border-radius:10px;background:var(--page);padding:0 12px;font-family:inherit;font-size:13.5px;color:var(--ink);outline:none;}
+  .gd .set-row input:focus{border-color:var(--ink);}
+  .gd .set-note{font-size:13px;line-height:1.6;color:var(--mute);margin:0;}
+  .gd .set-actions{display:flex;gap:10px;flex-wrap:wrap;}
+  .gd .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,16px);background:var(--ink);color:#fff;font-size:13px;font-weight:600;padding:12px 20px;border-radius:12px;opacity:0;pointer-events:none;transition:opacity 200ms ease,transform 260ms var(--ease);z-index:90;max-width:86vw;text-align:center;}
+  .gd .toast.show{opacity:1;transform:translate(-50%,0);}
+  .gd .savebtn{background:none;border:1px solid var(--line);color:var(--mute);width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:color 150ms ease,border-color 150ms ease,background 150ms ease;}
+  .gd .savebtn:hover{color:var(--ink);border-color:var(--mute);}
+  .gd .savebtn.on{background:var(--acid);border-color:var(--acid);color:var(--ink);}
+  @media print{
+    body *{visibility:hidden;}
+    #pvCert, #pvCert *{visibility:visible;}
+    #pvCert{position:absolute;inset:0;margin:0;}
+  }
   .gd table{width:100%;border-collapse:collapse;font-size:13px;}
   .gd th{text-align:left;font-weight:700;color:var(--mute-2);font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;padding:12px 16px;background:var(--page);}
   .gd th:first-child{border-radius:14px 0 0 14px;}
@@ -985,12 +1067,12 @@
       <div class="hero">
         <div>
           <h1>Master the skills that <em>shape the future.</em></h1>
-          <p>Three courses running. One finishes this week.</p>
+          <p id="heroSub">Pick up where you left off.</p>
         </div>
         <div class="fig">
-          <div><span class="n">54</span><span class="l lab">Days</span></div>
-          <div><span class="n">876</span><span class="l lab">Points</span></div>
-          <div><span class="n">17</span><span class="l lab">Done</span></div>
+          <div><span class="n" id="figDays">0</span><span class="l lab">Day streak</span></div>
+          <div><span class="n" id="figPts">0</span><span class="l lab">Points</span></div>
+          <div><span class="n" id="figDone">0</span><span class="l lab">Lessons done</span></div>
         </div>
       </div>
 
@@ -1015,9 +1097,23 @@
       <table><thead><tr><th>Certificate</th><th>Issued</th><th>Grade</th><th style="text-align:right"></th></tr></thead><tbody id="certb"></tbody></table></div>
     <div class="pv sec" data-v="tutor" hidden><div class="bh"><h2>AI Tutor</h2></div>
       <div class="lite"><h3>Ask anything about what you're studying</h3>It knows every course you are enrolled in and how far along each one is.<div style="margin-top:16px"><button class="pill" id="dTutorOpen2"><span data-tb="message-circle" data-sz="15"></span> Open the tutor</button></div></div></div>
+    <div class="pv sec" data-v="course" hidden id="pvCourse"></div>
+    <div class="pv sec" data-v="lesson" hidden id="pvLesson"></div>
+    <div class="pv sec" data-v="certview" hidden id="pvCert"></div>
     <div class="pv sec" data-v="settings" hidden><div class="bh"><h2>Settings</h2></div>
-      <div class="lite"><h3>Full access since March 2026</h3>Every pathway, certification assessments and downloadable project files.
-      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap"><button class="pill">Manage plan</button><button class="pill">Notifications</button></div></div></div>
+      <div class="set-card">
+        <h3>Profile</h3>
+        <label class="set-row"><span>Full name</span><input id="setName" type="text" maxlength="40"></label>
+        <label class="set-row"><span>Role or title</span><input id="setRole" type="text" maxlength="40"></label>
+        <div class="set-actions"><button class="pill pbtn" id="setSave">Save profile</button></div>
+      </div>
+      <div class="set-card">
+        <h3>Your data</h3>
+        <p class="set-note">Progress, certificates and settings live in this browser only. Export a backup or wipe everything and start over.</p>
+        <div class="set-actions"><button class="pill" id="setExport">Export backup</button><button class="pill" id="setReset" style="color:var(--red)">Reset all progress</button></div>
+      </div>
+    </div>
+    <div id="toast" class="toast" role="status"></div>
   </main>
 
   <aside class="rail">
@@ -1025,16 +1121,16 @@
       <div class="pr">
         <span class="pa"><span id="av1"></span></span>
         <div class="pi">
-          <h3>Michael F.</h3>
-          <span class="ro">Marketing lead</span>
-          <span class="pts"><i class="coin"></i><b>876</b><span>Points</span></span>
+          <h3 id="profName">Michael F.</h3>
+          <span class="ro" id="profRole">Marketing lead</span>
+          <span class="pts"><i class="coin"></i><b id="profPts">0</b><span>Points</span></span>
         </div>
       </div>
       <div class="pdiv"></div>
       <div class="stats">
-        <div class="stat"><div class="n" style="color:var(--red)"><span data-tb="flame" data-sz="17"></span>54</div><div class="l">Days Streak</div></div>
-        <div class="stat"><div class="n" style="color:#3B7FA8"><span data-tb="target" data-sz="17"></span>06</div><div class="l">Goals In Month</div></div>
-        <div class="stat"><div class="n"><span data-tb="award" data-sz="17"></span>02</div><div class="l">2nd Place</div></div>
+        <div class="stat"><div class="n" style="color:var(--red)"><span data-tb="flame" data-sz="17"></span><span id="stStreak">0</span></div><div class="l">Day Streak</div></div>
+        <div class="stat"><div class="n" style="color:#3B7FA8"><span data-tb="book" data-sz="17"></span><span id="stDone">0</span></div><div class="l">Lessons Done</div></div>
+        <div class="stat"><div class="n"><span data-tb="certificate" data-sz="17"></span><span id="stCerts">0</span></div><div class="l">Certificates</div></div>
       </div>
     </div>
 
@@ -1045,12 +1141,12 @@
     </div>
 
     <div class="two">
-      <button class="mini a" data-go="courses"><span class="mi"><span data-tb="book" data-sz="18"></span></span><h4>3 Courses</h4><span>In Progress</span></button>
-      <button class="mini b" data-go="certs"><span class="mi"><span data-tb="certificate" data-sz="18"></span></span><h4>17 Courses</h4><span>Completed</span></button>
+      <button class="mini a" data-go="courses"><span class="mi"><span data-tb="book" data-sz="18"></span></span><h4 id="miniProgress">0</h4><span>In Progress</span></button>
+      <button class="mini b" data-go="certs"><span class="mi"><span data-tb="certificate" data-sz="18"></span></span><h4 id="miniDone">0</h4><span>Completed</span></button>
     </div>
 
     <div class="card">
-      <div class="ch"><h3>Watch time</h3><button class="pill" id="m3">Week</button></div>
+      <div class="ch"><h3>Activity</h3><button class="pill" id="m3">Week</button></div>
       <div class="rows" id="rows"></div>
     </div>
   </aside>
@@ -1227,106 +1323,445 @@
      ========================================================== */
   var AV='<svg width="60" height="60" viewBox="0 0 48 48"><circle cx="24" cy="19" r="9.6" fill="#E8B48C"/><path d="M13.6 17.4C13.6 10.8 18.2 7 24 7s10.4 3.6 10.4 10.4c-2.4 0-3.8-1.6-5.1-3.4-2.6 2.4-9.4 3-15.7 3.4z" fill="#1A1A1D"/><path d="M19.4 26.4h9.2v3.4a4.6 4.6 0 0 1-9.2 0z" fill="#D89E76"/><path d="M7 48c0-9.4 7.6-14.6 17-14.6S41 38.6 41 48z" fill="#111214"/></svg>';
 
-  var ENROLLED=[
-    {t:"Prompting Without the Jargon",p:72,d:"Lesson 4 / 5",left:"38 min"},
-    {t:"Make a Product Photo for Free",p:30,d:"Lesson 1 / 4",left:"1h 10"},
-    {t:"Your Data, Their Model",p:55,d:"Lesson 2 / 3",left:"25 min"},
-    {t:"Network Security Essentials",p:29,d:"Lesson 2 / 7",left:"2h"},
-    {t:"Meeting Notes That Hold Up",p:88,d:"Lesson 5 / 5",left:"12 min"},
-    {t:"Data Analysis with SQL",p:33,d:"Lesson 6 / 18",left:"4h"}
+  /* ---------------- catalog ---------------- */
+  function L(t,m,b){return {t:t,m:m,b:b};}
+  var CAT=[
+  {id:"ai-foundations",t:"AI Foundations for Business",track:"foundations",lvl:"Beginner",price:"Free",r:4.9,n:3120,
+   blurb:"What AI actually is, what it can reliably do for a small business today, and where it still fails. The course to give every employee before you buy any tool.",
+   asg:"Write a one page AI usage policy draft for your business: three allowed uses, three prohibited uses, and who signs off.",
+   lessons:[
+    L("What AI is doing in plain words",10,"<p>Modern AI tools predict likely text, images or answers from patterns in huge amounts of data. They are brilliant drafts, summaries and first passes. They guess. Knowing that one fact explains almost every strength and every failure you will meet.</p><ul><li>A language model predicts the next word, it does not look up facts</li><li>Confident tone is not evidence of correctness</li><li>The human in the loop is the product design</li></ul><p class='task'><b>Try it:</b> Ask any chatbot for a statistic about your industry, then search for the real number. Note the gap.</p>"),
+    L("What AI is genuinely good at",12,"<p>Volume work where a draft is 80 percent of the job: first drafts, summarising long documents, reformatting, brainstorming, translating, cleaning data. If a task produces text and a person checks the result, AI probably helps.</p><ul><li>Drafting emails, proposals, listings, posts</li><li>Summarising meetings, threads, contracts for gist</li><li>Turning one piece of content into ten formats</li></ul><p class='task'><b>Try it:</b> List ten tasks you did last week. Mark each: draft-heavy, judgement-heavy or relationship-heavy. AI helps the first column most.</p>"),
+    L("Where AI fails and burns you",10,"<p>Models invent facts, miss context your business assumes, and drift on long tasks. Legal numbers, medical claims, tax positions and anything with your name signed under it needs human ownership.</p><ul><li>Hallucination: plausible answers with no source</li><li>Stale knowledge: models have a training cutoff</li><li>Context gaps: it does not know your clients or margins</li></ul><p class='task'><b>Try it:</b> Ask a chatbot about a recent event in your market. Check how it handles not knowing.</p>"),
+    L("The ROI math for a small team",12,"<p>Value comes from time saved per person per week multiplied by headcount, minus subscription and review time. A tool saving each of five people two hours a week pays for itself easily. A tool one person never opens does not.</p><ul><li>Measure hours saved against license cost</li><li>Count review time, AI output needs checking</li><li>Kill tools with low weekly active use</li></ul><p class='task'><b>Try it:</b> Pick one task, time it manually, then time it with AI help. Write both numbers down.</p>"),
+    L("Choosing your first use case",10,"<p>Start where volume is high, quality tolerance is moderate and checking is cheap: internal drafts, meeting notes, product descriptions. Avoid customer-facing legal or pricing copy first.</p><ul><li>High volume, low risk wins first</li><li>One use case at a time, measured</li><li>Expand only after the first one sticks</li></ul><p class='task'><b>Try it:</b> Write down your chosen first use case and the metric you will watch for two weeks.</p>"),
+    L("Tools landscape without the hype",12,"<p>Chat assistants (ChatGPT, Claude, Gemini), document suites with AI built in (Google Workspace, Microsoft 365 Copilot), image tools, meeting notetakers and automation platforms. Most small businesses need three of these, well used, rather than ten barely used.</p><ul><li>A chat assistant is the anchor tool</li><li>Suite AI removes copy-paste friction</li><li>Notetakers pay for themselves in one meeting</li></ul><p class='task'><b>Try it:</b> Shortlist three tools that map to the use case you picked in lesson 5.</p>"),
+    L("Your 30 day adoption plan",12,"<p>Week 1: pick the use case and tool, run it yourself. Week 2: teach one colleague with a saved prompt list. Week 3: measure hours saved. Week 4: decide expand, adjust or kill. Adoption is a habit problem, so make the tool open on startup.</p><ul><li>One champion beats a company-wide mandate</li><li>Shared prompt library from day one</li><li>Review at day 30 with real numbers</li></ul><p class='task'><b>Try it:</b> Put the four weekly milestones in your calendar before you close this course.</p>")
+   ]},
+  {id:"prompting",t:"Prompting Without the Jargon",track:"foundations",lvl:"Beginner",price:"Free",r:4.9,n:2410,
+   blurb:"A practical prompt method for people who will never read an AI tutorial. Get useful answers on the first or second try instead of the fifth.",
+   asg:"Build a prompt library of five reusable prompts for your job. Save them where your team can see them.",
+   lessons:[
+    L("The four parts of a working prompt",10,"<p>Role, task, context, format. Most bad prompts are missing context and format. Tell the model who it is, what you want, what it needs to know about your situation, and what the output should look like.</p><ul><li>Role sets vocabulary and depth</li><li>Context replaces the mind-reading</li><li>Format makes output paste-ready</li></ul><p class='task'><b>Try it:</b> Rewrite a prompt you used this week with all four parts. Compare the two answers.</p>"),
+    L("Context: the ingredient everyone skips",10,"<p>The model does not know your audience, your product, your prices or your tone unless you say so. Three sentences of context routinely beat an hour of re-prompting.</p><ul><li>Say who the output is for</li><li>Share the constraints: budget, tone, length</li><li>Paste an example you like</li></ul><p class='task'><b>Try it:</b> Take one task and write a context block you can reuse every time.</p>"),
+    L("Iterating without starting over",10,"<p>Treat the first answer as a draft. Reply with corrections in the same thread: shorter, warmer, add numbers, cut the intro. The model keeps context, so refine instead of retyping.</p><ul><li>One change per follow-up</li><li>Ask for two variants when unsure of direction</li><li>Say what to keep, then what to change</li></ul><p class='task'><b>Try it:</b> Improve one answer through three follow-ups without ever starting a new chat.</p>"),
+    L("Few-shot examples on demand",12,"<p>Show the model one or two examples of input and the output you want, and it will copy the pattern. This is how you get consistent product descriptions or email replies at volume.</p><ul><li>One example beats a paragraph of description</li><li>Two examples cover the edge cases</li><li>Keep examples short and clean</li></ul><p class='task'><b>Try it:</b> Give the model one example email in your voice, then have it draft three new ones.</p>"),
+    L("Prompt templates for repeated work",10,"<p>Turn your best prompts into fill-in-the-blank templates with CAPITAL placeholders. Store them in a shared doc. Your team stops reinventing the wheel every Monday.</p><ul><li>Placeholders make prompts reusable</li><li>Name templates by task, not by tool</li><li>Review the library monthly</li></p><p class='task'><b>Try it:</b> Convert your best prompt from lesson 4 into a template with three placeholders.</p>"),
+    L("When to stop prompting and change tools",8,"<p>If you are re-explaining the same context every day, you have outgrown chat. That is the signal to move the prompt into a saved assistant, a custom GPT, or an automation. Prompting well tells you exactly when to upgrade.</p><ul><li>Daily repetition means automate it</li><li>Long context belongs in a project or assistant</li><li>Your prompt library is your automation spec</li></ul><p class='task'><b>Try it:</b> Identify one prompt you would automate first, and what inputs it needs.</p>")
+   ]},
+  {id:"tools",t:"Choosing Your AI Toolkit",track:"foundations",lvl:"Beginner",price:"Free",r:4.8,n:1890,
+   blurb:"Chat assistants, suite AI, notetakers, image tools and automations compared for a small business budget. Pick three, skip the rest.",
+   asg:"Write a one paragraph justification for each tool in your shortlist, with its monthly cost and the task it owns.",
+   lessons:[
+    L("The five categories that matter",10,"<p>Chat assistants, built-in suite AI, meeting notetakers, image and design tools, automation platforms. Everything else is a variant. Map your tasks to a category before shopping for brands.</p><ul><li>Category first, brand second</li><li>Most overlap is marketing</li><li>Three well-used tools beat ten trials</li></ul><p class='task'><b>Try it:</b> Sort your task list from the foundations course into these five buckets.</p>"),
+    L("Chat assistants compared honestly",12,"<p>ChatGPT, Claude and Gemini all have free tiers good enough to start. Paid tiers add better models, file analysis and longer memory. Pick one anchor assistant and learn it deeply rather than hopping weekly.</p><ul><li>Free tiers are genuinely usable</li><li>Paid value shows in file and data work</li><li>Depth beats breadth with one assistant</li></ul><p class='task'><b>Try it:</b> Run the same three prompts in two assistants and note which fits your work.</p>"),
+    L("Suite AI: Copilot and Gemini in Workspace",10,"<p>If your team lives in Gmail, Docs or Office, suite AI removes the copy-paste tax: drafting in place, summarising threads, formula help in Sheets and Excel. Per-seat pricing adds up, so pilot with two seats.</p><ul><li>Value scales with how much you live in the suite</li><li>Pilot seats before company-wide rollout</li><li>Meeting summaries are the killer feature</li></ul><p class='task'><b>Try it:</b> Count how many hours a week your team spends in docs and mail. That number decides this purchase.</p>"),
+    L("Notetakers and the meeting tax",10,"<p>Notetakers join calls, transcribe and summarise, turning meetings into searchable notes and action lists. Consent rules apply: announce the bot. The payoff is fewer recap meetings and a searchable memory.</p><ul><li>Action items are the real product</li><li>Ask permission, always</li><li>Search old meetings by topic</li></ul><p class='task'><b>Try it:</b> Run one notetaker on your next call and time how long the recap takes manually versus automatically.</p>"),
+    L("Automation platforms: when to graduate",12,"<p>Make, Zapier and n8n connect your tools so flows run without you: form to CRM to email. Start when a prompt repeats daily. Automations are recipes, and your prompt library is the ingredient list.</p><ul><li>Automate the repetitive, review the risky</li><li>Every automation needs an owner</li><li>Log runs so you can debug</li></ul><p class='task'><b>Try it:</b> Sketch one automation as three boxes: trigger, step, result.</p>")
+   ]},
+  {id:"content",t:"AI Content That Sounds Like You",track:"content",lvl:"Intermediate",price:"490 Kč",r:4.8,n:1420,
+   blurb:"Feed the model your voice, then scale blog posts, newsletters and product copy without sounding like everyone else's bot.",
+   asg:"Produce one publish-ready piece of content end to end with your voice guide attached, and note the time it took.",
+   lessons:[
+    L("Your voice guide: one page that changes everything",12,"<p>Write down your tone rules: sentence length, words you love, words you ban, three examples of your best writing. Attach it to every prompt. This single document is the difference between generic and yours.</p><ul><li>Ban-list beats style advice</li><li>Three sample paragraphs teach tone</li><li>Update the guide quarterly</li></ul><p class='task'><b>Try it:</b> Draft your one page voice guide now, bans included.</p>"),
+    L("The draft pyramid",10,"<p>AI drafts, you decide, AI polishes. Outline with the model, rewrite the parts that carry your opinion yourself, then have it tighten the rest. Opinion is the part readers actually come for.</p><ul><li>Outline fast, write the spine yourself</li><li>Keep one strong human paragraph per piece</li><li>Polish pass: cut 15 percent of words</li></ul><p class='task'><b>Try it:</b> Outline your next article with AI, then handwrite the opening.</p>"),
+    L("One source, ten formats",12,"<p>A single article becomes a newsletter, five social posts, a script, an FAQ entry and sales email copy. Give the model the source plus the voice guide and ask for each format with its own constraint.</p><ul><li>Formats have their own rules, prompt for them</li><li>Batch repurposing weekly</li><li>Link every format back to the source</li></ul><p class='task'><b>Try it:</b> Take one piece you already published and produce three new formats from it.</p>"),
+    L("Editing for the machine smell",10,"<p>Bot tells: uniform sentence length, hedged openings, list-everything structure, empty adjectives. Read aloud. Cut the first sentence and the last one; they are usually filler.</p><ul><li>Vary rhythm deliberately</li><li>Replace adjectives with specifics</li><li>If a sentence could be on any site, cut it</li></ul><p class='task'><b>Try it:</b> Run the read-aloud edit on an AI draft and count the cuts.</p>"),
+    L("SEO content that survives updates",12,"<p>Search engines reward helpful, specific, first-hand content. Use AI for structure and coverage, then add what only you have: real numbers, client stories, photos, local detail. Thin generated pages are a liability.</p><ul><li>One strong page beats five thin ones</li><li>Add proof: numbers, images, names</li><li>Answer the actual question in the first paragraph</li></ul><p class='task'><b>Try it:</b> Pick your best-performing page and add one piece of first-hand proof to it.</p>"),
+    L("A weekly content system",10,"<p>Monday: pick topics from customer questions. Tuesday: outline and draft with AI. Wednesday: human edit and proof. Thursday: schedule. Friday: repurpose one piece. Two hours of focused use beats daily guilt-scrolling.</p><ul><li>Themes from real questions, not trends</li><li>Batch by task type, not by post</li><li>Measure what moves: replies, saves, clicks</li></ul><p class='task'><b>Try it:</b> Block the five slots in your calendar as a recurring weekly series.</p>")
+   ]},
+  {id:"social",t:"Social Media, Systemized",track:"content",lvl:"Beginner",price:"290 Kč",r:4.7,n:980,
+   blurb:"Plan, draft and repurpose a month of social content in one sitting, with hooks that sound like a person wrote them.",
+   asg:"Draft a two week content calendar with nine posts, each with a hook and a call to action.",
+   lessons:[
+    L("Hooks: the only 8 words that matter",10,"<p>Scrolling stops on the first line. AI can generate twenty hooks fast; your job is picking the one a real customer would pause on. Specific beats clever: numbers, outcomes, named problems.</p><ul><li>Generate 20, publish 1</li><li>Specificity is the hook</li><li>Write the hook before the post</li></ul><p class='task'><b>Try it:</b> Have AI write 20 hooks for one tip you give clients weekly. Pick the best two.</p>"),
+    L("Content pillars for SMBs",10,"<p>Three to four repeating themes: proof (results, before and after), teach (quick tips), behind the scenes (how you work), and offer (what you sell). Rotate them so the feed never becomes a brochure.</p><ul><li>Proof builds trust fastest</li><li>Teach posts get saved</li><li>One offer post per four posts</li></ul><p class='task'><b>Try it:</b> Name your four pillars and one post idea under each.</p>"),
+    L("Batching a month in one sitting",12,"<p>One session, one topic per pillar, AI drafts each post in your voice guide, you edit. Schedule everything. The win is not time saved per post, it is never posting from panic again.</p><ul><li>Same energy for the whole batch</li><li>Edit in a second pass, not while drafting</li><li>Leave two slots empty for timely posts</li></ul><p class='task'><b>Try it:</b> Batch four posts right now, one per pillar.</p>"),
+    L("Repurposing across platforms",10,"<p>A LinkedIn post becomes an Instagram carousel, a short video script and a tweet thread. Ask the model to reformat with platform rules: lengths, tone, first-line hooks. Do not crosspost blindly.</p><ul><li>Each platform, first line rewritten</li><li>Video scripts: spoken, not written, language</li><li>Keep the core message identical</li></ul><p class='task'><b>Try it:</b> Reformat one post for two other platforms with platform-specific prompts.</p>"),
+    L("Reading the data without drowning",8,"<p>Watch three numbers only: saves and shares (value), profile visits to follows (conversion), replies (relationship). Likes are noise. Ask AI to summarise the month and suggest next month's weights.</p><ul><li>Saves predict reach better than likes</li><li>Comments are leads in disguise</li><li>Double down on the top pillar monthly</li></ul><p class='task'><b>Try it:</b> Pull last month's numbers and mark your best pillar.</p>")
+   ]},
+  {id:"marketing",t:"Campaigns in Hours",track:"marketing",lvl:"Intermediate",price:"490 Kč",r:4.8,n:1160,
+   blurb:"Go from a blank page to a full campaign: offer, audience, channels, emails and ads, drafted and refined in one working day.",
+   asg:"Ship one small campaign end to end: offer, three emails and one ad set, and record what each part cost you in time.",
+   lessons:[
+    L("The offer comes first",12,"<p>AI can write around an offer, it cannot invent one that fits your margins. Nail what you sell, to whom, at what price, with what guarantee. Then the campaign is packaging.</p><ul><li>One offer per campaign</li><li>Price before copy</li><li>A guarantee is a conversion tool</li></ul><p class='task'><b>Try it:</b> Write your offer in one sentence: what, for whom, price, guarantee.</p>"),
+    L("Audience research with AI in the loop",10,"<p>Feed the model your last ten customer emails or reviews and ask for pains, objections and exact phrases. Real language from real customers becomes your ad copy. The model structures it, customers wrote it.</p><ul><li>Voice of customer beats invented personas</li><li>Objections map to your ad angles</li><li>Steal phrases verbatim</li></ul><p class='task'><b>Try it:</b> Paste five reviews and extract three pains and three objections.</p>"),
+    L("The one day campaign sprint",12,"<p>Morning: offer and angles. Midday: email sequence drafted with the voice guide. Afternoon: landing page copy and two ad variants. You review each block against the offer before moving on.</p><ul><li>Timebox each block to one hour</li><li>Review against the offer, not taste</li><li>Ship at 80 percent, fix live</li></ul><p class='task'><b>Try it:</b> Book the sprint day and put the four blocks in it.</p>"),
+    L("Email sequences that get replies",12,"<p>Three emails beat seven: the promise, the proof, the deadline. AI drafts each with a different job. Subject lines: generate ten, pick the one that names the outcome.</p><ul><li>Every email has one job</li><li>Proof email carries the weight</li><li>Deadline email: short and plain</li></ul><p class='task'><b>Try it:</b> Draft your three email skeletons with AI, one job each.</p>"),
+    L("Ad variants and honest testing",10,"<p>Two angles, two hooks each, one budget. Let AI write the variants from your customer phrases. Judge on clicks and cost per lead after enough impressions, not on the first afternoon.</p><ul><li>Test angles, not commas</li><li>Minimum viable spend before judging</li><li>Kill slow variants weekly</li></ul><p class='task'><b>Try it:</b> Write two angles for your offer and one headline for each.</p>"),
+    L("Measuring and repeating",8,"<p>Track cost per lead, reply rate and sales per channel in one sheet. Ask AI to read the numbers and recommend where next month's budget goes. Repeat winners three times before changing anything.</p><ul><li>One sheet, three metrics</li><li>Winners get repetition, not variation</li><li>Post-mortem in 15 minutes</li></ul><p class='task'><b>Try it:</b> Create the one sheet with your three metrics now.</p>")
+   ]},
+  {id:"seo",t:"Search & SEO with AI",track:"marketing",lvl:"Intermediate",price:"290 Kč",r:4.7,n:760,
+   blurb:"Keyword research, content briefs and on-page edits with AI assistance that survives Google's updates.",
+   asg:"Produce one content brief and publish one improved page, and note the queries it should target.",
+   lessons:[
+    L("How search sees AI content now",10,"<p>Google ranks helpful, first-hand pages and filters scaled thin ones. AI is fine for structure and speed. The ranking asset is your specific experience: numbers, photos, places, names.</p><ul><li>Experience is the moat</li><li>Volume publishing is a trap</li><li>Update old winners more often than you publish new</li></ul><p class='task'><b>Try it:</b> List your five most visited pages. Those are your update list.</p>"),
+    L("Keyword research in 30 minutes",12,"<p>Type your service into the chat assistant, ask for the questions buyers actually ask at each stage, then cross check volume in any free tool. Cluster into three groups: how it works, pricing, near me.</p><ul><li>Questions map to funnel stages</li><li>Long tail phrases are small business gold</li><li>Local modifiers beat broad terms</li></ul><p class='task'><b>Try it:</b> Generate 20 buyer questions for your service and mark the five with buying intent.</p>"),
+    L("Content briefs the model writes for itself",10,"<p>A brief lists the question, the searcher's situation, the sections, the proof to include and the pages to link. Generate it with AI, verify it against real search results, then draft.</p><ul><li>Brief before draft, always</li><li>Check the live results page for intent</li><li>Proof items are your job, not the model's</li></ul><p class='task'><b>Try it:</b> Produce one brief for your most important page.</p>"),
+    L("On-page edits that move rankings",10,"<p>Title with the phrase and the outcome, first paragraph answers the question, headers match the questions, internal links to your related pages. AI can audit a page against this checklist in seconds.</p><ul><li>Answer above the fold</li><li>One page, one intent</li><li>Link three related pages, both directions</li></ul><p class='task'><b>Try it:</b> Audit one page against the checklist and fix the first violation.</p>"),
+    L("Local search for physical businesses",8,"<p>Google Business Profile does the heavy lifting: complete data, weekly posts, real photos, review replies. AI drafts posts and replies in your voice; you keep the facts accurate.</p><ul><li>Reviews are content, reply to all</li><li>Service area pages: one place, one page</li><li>Photos beat keywords for local trust</li></ul><p class='task'><b>Try it:</b> Draft replies to your three most recent reviews.</p>")
+   ]},
+  {id:"service",t:"AI Customer Service",track:"ops",lvl:"Beginner",price:"290 Kč",r:4.8,n:830,
+   blurb:"Draft faster replies, build a self-serve FAQ from your real tickets, and keep the human tone your customers signed up for.",
+   asg:"Publish a five question FAQ from your real ticket history and save three reply templates.",
+   lessons:[
+    L("Reply faster without sounding robotic",10,"<p>Paste the customer email plus three facts (order, policy, timeline) and have the model draft the reply. You edit tone and commitments. Customers notice speed; they forgive a template.</p><ul><li>Facts in, draft out, human send</li><li>Never let AI promise refunds or dates</li><li>Keep a tone card next to the prompt</li></ul><p class='task'><b>Try it:</b> Draft a reply to your last difficult email with this method.</p>"),
+    L("Your FAQ writes itself from tickets",12,"<p>Export your last fifty support messages, group them, and have AI write an answer for each repeated question using your real policy. That page deflects the same fifty questions forever.</p><ul><li>Top ten questions cover most volume</li><li>Answers cite your actual policy</li><li>Link the FAQ in every reply template</li></ul><p class='task'><b>Try it:</b> List your five most repeated questions from memory right now.</p>"),
+    L("Reply templates with fill-in slots",10,"<p>For your five frequent cases, build templates with placeholders: order number, name, next step. The model fills them from the ticket. Speed with consistency, and new staff sound trained on day one.</p><ul><li>Templates for the top five cases</li><li>Slots keep it personal</li><li>Review templates monthly</li></ul><p class='task'><b>Try it:</b> Write one template for your most common case.</p>"),
+    L("Complaints: where AI assists and you decide",12,"<p>AI can summarise the complaint, find the policy and propose options. The decision and the apology are yours. Never auto-send to an angry customer; the cost of one bad reply outlives the time saved.</p><ul><li>Summarise first, respond second</li><li>Options drafted, human chosen</li><li>Tone check before every send</li></ul><p class='task'><b>Try it:</b> Take a real old complaint and run the summarise-then-propose flow.</p>"),
+    L("Chatbots on your site: yes or no",8,"<p>A small, honest FAQ bot beats a big pretend-human one. Scope it to your top questions, make it say I do not know, and hand off to a person visibly. Measure deflected tickets, not conversations.</p><ul><li>Scope beats ambition</li><li>Visible handoff keeps trust</li><li>Track deflection weekly</li></ul><p class='task'><b>Try it:</b> Write the five questions your site bot would answer at launch.</p>")
+   ]},
+  {id:"automate",t:"Automate the Boring Work",track:"ops",lvl:"Intermediate",price:"490 Kč",r:4.9,n:1040,
+   blurb:"Turn your most repeated AI prompts into running automations: quotes, invoices, reports and follow-ups that happen without you.",
+   asg:"Ship one working automation end to end and log what it saves per week.",
+   lessons:[
+    L("Spotting automate-able work",10,"<p>The pattern: same inputs, same steps, same output, done weekly or more. Quotes from inquiry forms, weekly reports, invoice reminders, onboarding emails. If you can write it as steps, a machine can hold it.</p><ul><li>Repetition plus structure equals automatable</li><li>One owner per automation</li><li>Automate the process, review the output</li></ul><p class='task'><b>Try it:</b> Write your three most repeated digital chores as step lists.</p>"),
+    L("The recipe: trigger, steps, output",12,"<p>Every automation is a trigger (form submitted), steps (enrich, draft, format) and an output (email sent, row added). Build on paper first. The draft prompt from your library becomes one step.</p><ul><li>Paper prototype before tooling</li><li>Prompts are steps in the recipe</li><li>Outputs should land where you already look</li></ul><p class='task'><b>Try it:</b> Draw your first automation as trigger, three steps, output.</p>"),
+    L("Quotes and proposals on autopilot",12,"<p>Form data in, drafted proposal out: the model fills your template with the client's words, numbers from your price list, and your terms. You review and send. Ten minutes instead of two hours.</p><ul><li>Templates carry your structure</li><li>Price lists live in a sheet, not in prompts</li><li>Review is non-negotiable</li></ul><p class='task'><b>Try it:</b> List the fields your quote needs and where each comes from.</p>"),
+    L("Reports and invoices without the dread",10,"<p>Weekly numbers pulled into a sheet, model writes the summary, invoice reminders drafted from due dates. The point is removing the start-from-blank moment that makes you postpone admin.</p><ul><li>Sheets are the interface</li><li>Summaries compare against last period</li><li>Reminders: polite, scheduled, done</li></ul><p class='task'><b>Try it:</b> Pick one report you delay and list its five numbers.</p>"),
+    L("Guardrails: what never runs unreviewed",10,"<p>Money out, contracts, public posts and anything legal always gets a human pass. Log every automation run. When something breaks, and something will, the log is how you fix it in minutes.</p><ul><li>High-stakes output needs approval</li><li>Logs are your flight recorder</li><li>Test with fake data first</li></ul><p class='task'><b>Try it:</b> Mark each automation idea: auto-run or review-then-send.</p>"),
+    L("Your automation backlog",8,"<p>Keep a running list: chore, steps, minutes saved. Ship one per month. After a year you have twelve running and a business that quietly runs itself through the boring parts.</p><ul><li>One per month beats ten in a sprint</li><li>Minutes saved per week is the score</li><li>Delete automations nobody missed</li></ul><p class='task'><b>Try it:</b> Start the backlog doc with three entries and their minutes saved.</p>")
+   ]},
+  {id:"sales",t:"AI for Sales & Outreach",track:"sales",lvl:"Intermediate",price:"490 Kč",r:4.7,n:690,
+   blurb:"Research prospects, write outreach that gets answered, and follow up like a professional without becoming a spammer.",
+   asg:"Run the full research-then-write flow on five real prospects and send one sequence.",
+   lessons:[
+    L("Research first, write second",12,"<p>Paste a prospect's site and recent posts, ask for their business model, offer and likely pains. Ten minutes of research turns a cold email into a warm one. Generic outreach fails on volume; specific fails less.</p><ul><li>Their words beat your adjectives</li><li>One specific detail per email</li><li>Research notes become your opening line</li></ul><p class='task'><b>Try it:</b> Research one real prospect with this flow and write their three likely pains.</p>"),
+    L("Cold emails that respect the reader",10,"<p>Short: who you are, why them specifically, one relevant proof, one small ask. No pitch decks, no triple follow-up in a week. AI drafts from your research; you cut anything you would not say face to face.</p><ul><li>90 words or fewer</li><li>The ask: interest, not a meeting slot</li><li>One proof point, relevant to them</li></ul><p class='task'><b>Try it:</b> Write a 90 word email to your researched prospect.</p>"),
+    L("Follow-up cadence that keeps dignity",10,"<p>Three touches over two weeks: value, value, polite close. Each adds something: a relevant example, a useful link, an honest goodbye. AI tracks the thread so each message references the last.</p><ul><li>Every touch adds value</li><li>The close-out often gets the reply</li><li>Stop at no, mark the list</li></ul><p class='task'><b>Try it:</b> Draft your three touch sequence with the value added each time.</p>"),
+    L("Proposals and quotes on the same day",12,"<p>Call notes in, proposal out: their situation in their words, your approach, price from your sheet, next step with a date. Speed signals competence. The model formats, you set the numbers.</p><ul><li>Send within 24 hours</li><li>Their words for the problem, yours for the plan</li><li>Always end with a dated next step</li></ul><p class='task'><b>Try it:</b> Turn your last sales call notes into a proposal skeleton.</p>"),
+    L("A simple pipeline you will keep",8,"<p>A sheet with stages: researched, contacted, replied, call, proposal, won, lost. AI summarises where deals stall each Friday. The habit matters more than the CRM; graduate to software when the sheet overflows.</p><ul><li>Sheet first, CRM later</li><li>Friday review, 15 minutes</li><li>Stalled stage tells you what to fix</li></ul><p class='task'><b>Try it:</b> Build the sheet with your five current opportunities.</p>")
+   ]},
+  {id:"data",t:"Decisions & Spreadsheets Meet AI",track:"data",lvl:"Beginner",price:"290 Kč",r:4.8,n:720,
+   blurb:"Clean data, generate formulas, read your own numbers and make decisions with an analyst that lives in your spreadsheet.",
+   asg:"Take one real business question, answer it with a formula and a short written summary, and note the decision it drives.",
+   lessons:[
+    L("Formulas by description",10,"<p>Describe what you want in plain language: sum column C where column B says Prague. Sheets and Excel AI writes the formula, you verify the range. Formula knowledge is now a reading skill, not a writing one.</p><ul><li>Describe the result, check the ranges</li><li>Ask the model to explain the formula back</li><li>Keep a formula notes column</li></ul><p class='task'><b>Try it:</b> Have AI write one formula for a real sheet and explain it back to you.</p>"),
+    L("Cleaning messy exports",12,"<p>Dates in three formats, names in one column, duplicates everywhere. AI transforms columns step by step: split, normalise, deduplicate. Ask it to show the first five rows after each step.</p><ul><li>Small steps, verified each time</li><li>Keep the raw sheet untouched</li><li>Name cleaning steps in the sheet</li></ul><p class='task'><b>Try it:</b> Clean one messy column with three prompted steps.</p>"),
+    L("Ask your data questions",10,"<p>Paste a table and ask: which product had the best margin last quarter, which month churned most. The model reasons over small tables well. For big files, summarise first or connect a data tool.</p><ul><li>Small tables: paste and ask</li><li>Ask for the method with the answer</li><li>Verify one number manually</li></ul><p class='task'><b>Try it:</b> Ask three questions of a real table and verify one answer by hand.</p>"),
+    L("Summaries that decide things",10,"<p>A report ends with a recommendation: numbers, so what, do this. Ask the model for exactly that structure and feed it clean data. Then apply judgment; the model does not know what your business can afford.</p><ul><li>Numbers, so what, do this</li><li>One recommendation per report</li><li>Owner and date on every action</li></ul><p class='task'><b>Try it:</b> Rewrite your last report ending as a recommendation with an owner.</p>"),
+    L("Warn: charts lie, averages hide",8,"<p>Averages hide outliers, percentages hide base sizes, charts hide axes. Ask the model what could mislead in this summary. Ten seconds of skepticism saves bad decisions.</p><ul><li>Ask for the distribution, then the average</li><li>Small base numbers make % useless</li><li>Check axis starts on every chart</li></ul><p class='task'><b>Try it:</b> Ask what could mislead in your last monthly summary.</p>")
+   ]},
+  {id:"safety",t:"Privacy, Policy & Safe Use",track:"ops",lvl:"Beginner",price:"Free",r:4.9,n:1510,
+   blurb:"What you can and cannot paste into AI tools, how to write a one page company policy, and how to stay on the right side of GDPR.",
+   asg:"Publish your one page AI policy: allowed uses, prohibited uses, data rules and the person responsible.",
+   lessons:[
+    L("What never goes into a prompt",12,"<p>Client personal data, payment details, health information, passwords, anything covered by an NDA. Prompts can be stored and used for training on free tiers. Treat the chat box like a postcard, not a vault.</p><ul><li>Names and numbers: anonymise first</li><li>NDA material stays out entirely</li><li>Business plans: check your tool's training settings</li></ul><p class='task'><b>Try it:</b> Write your three never-paste categories on a sticky note.</p>"),
+    L("Anonymise, then work",10,"<p>Replace names with Client A, exact figures with ranges, and strip contact details before pasting. The analysis survives anonymisation in almost every case. Make it a habit, not a decision each time.</p><ul><li>Find and replace before paste</li><li>Ranges beat exact numbers for analysis</li><li>Sensitive sectors: enterprise plans with no training</li></ul><p class='task'><b>Try it:</b> Anonymise one real email and notice nothing important was lost.</p>"),
+    L("GDPR in five minutes",12,"<p>If you process EU customers' data, AI tools are processors: your policy, their subprocessors. Data deletion requests still apply. Use tools with data processing agreements on paid plans and log what you use for what.</p><ul><li>Same rules, new tools</li><li>Paid plans offer DPAs, free tiers often not</li><li>Keep a tool register</li></ul><p class='task'><b>Try it:</b> Start your tool register: name, purpose, data touched, plan.</p>"),
+    L("Your one page AI policy",12,"<p>Three allowed uses, three prohibited uses, the anonymisation rule, and who to ask. One page, plain language, signed by the boss. A short policy people follow beats a long one nobody reads.</p><ul><li>Plain language, one page</li><li>Examples make rules concrete</li><li>Review every six months</li></ul><p class='task'><b>Try it:</b> Draft your three allowed and three prohibited uses now.</p>"),
+    L("Deepfakes, fraud and verified channels",8,"<p>Voice clones and fake invoices are already hitting small businesses. Agree a code word for payment changes, verify bank detail changes by phone on a known number, and distrust urgency.</p><ul><li>Callback on a known number, always</li><li>Urgency is the fraud tell</li><li>Train the whole team on one example</li></ul><p class='task'><b>Try it:</b> Set your payment-change verification rule and tell one colleague.</p>")
+   ]}
   ];
-  var RECS=[
-    {t:"Spot a Deepfake in Ten Seconds",au:"Marta Nováková",r:4.9,n:1420,dur:"15:20",pr:"Free",img:"sec",tag:"New"},
-    {t:"Which AI Tool Do I Actually Need",au:"Adam Smith",r:4.7,n:980,dur:"18:56",pr:"Free",img:"tools"},
-    {t:"Reading a Privacy Policy Fast",au:"Scott Warden",r:4.9,n:540,dur:"22:45",pr:"290 Kč",img:"privacy"},
-    {t:"Prompt Patterns for Reports",au:"Lena Ortiz",r:4.8,n:214,dur:"11:35",pr:"490 Kč",img:"writing"},
-    {t:"Accessible Colour in Practice",au:"Ines Duarte",r:4.8,n:176,dur:"10:18",pr:"290 Kč",img:"tools"},
-    {t:"From Draft to Deck in One Pass",au:"Dev Kapoor",r:4.6,n:305,dur:"15:32",pr:"490 Kč",img:"writing"}
-  ];
-  var LIVE=[{t:"AI for small business",d:"Live Q&A · Marta Nováková",time:"Today 18:00",live:true},
-    {t:"Threat modelling workshop",d:"Security pathway · week 4",time:"Tue 17:30"},
-    {t:"Portfolio review: design",d:"12 seats left",time:"Thu 19:00"}];
-  var WORK=[{t:"Transcript to decisions",c:"Meeting Notes That Hold Up",s:"Graded",g:"92/100"},
-    {t:"Three-light product shot",c:"Make a Product Photo",s:"In review",g:"—"},
-    {t:"Policy teardown",c:"Your Data, Their Model",s:"Not started",g:"—"}];
-  var CERTS=[{t:"Prompting Without the Jargon",d:"12 Aug 2026",g:"92 / 100"},
-    {t:"Responsive Layout Fundamentals",d:"04 Jul 2026",g:"88 / 100"},
-    {t:"Design Tokens in Production",d:"19 May 2026",g:"95 / 100"}];
-  var WATCH=[{d:"Mon",h:2.4},{d:"Tue",h:3.1},{d:"Wed",h:4.4},{d:"Thu",h:1.8},{d:"Fri",h:5.2},{d:"Sat",h:3.6},{d:"Sun",h:2.1}];
-  var DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 
-  function ccard(c,i){
-    return '<button class="cc" data-course="'+esc(c.t)+'" data-p="'+c.p+'">'+
+  /* ---------------- library & live ---------------- */
+  var RECS=[
+    {id:"r1",t:"Spot a Deepfake in Ten Seconds",au:"Marta Nováková",r:4.9,n:1420,dur:"15:20",pr:"Free",img:"sec",tag:"New"},
+    {id:"r2",t:"Which AI Tool Do I Actually Need",au:"Adam Smith",r:4.7,n:980,dur:"18:56",pr:"Free",img:"tools"},
+    {id:"r3",t:"Reading a Privacy Policy Fast",au:"Scott Warden",r:4.9,n:540,dur:"22:45",pr:"290 Kč",img:"privacy"},
+    {id:"r4",t:"Prompt Patterns for Reports",au:"Lena Ortiz",r:4.8,n:214,dur:"11:35",pr:"490 Kč",img:"writing"},
+    {id:"r5",t:"Accessible Colour in Practice",au:"Ines Duarte",r:4.8,n:176,dur:"10:18",pr:"290 Kč",img:"tools"},
+    {id:"r6",t:"From Draft to Deck in One Pass",au:"Dev Kapoor",r:4.6,n:305,dur:"15:32",pr:"490 Kč",img:"writing"}
+  ];
+  var LIVE=[
+    {id:"l1",t:"AI for small business",d:"Live Q&A · Marta Nováková",time:"Today 18:00",live:true},
+    {id:"l2",t:"Automation workshop: quotes on autopilot",d:"Operations pathway · week 3",time:"Tue 17:30"},
+    {id:"l3",t:"Office hours: your prompts reviewed",d:"Bring one prompt, leave with three",time:"Thu 19:00"}
+  ];
+  var DOW=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+  var TRACKN={foundations:"Foundations",content:"Content",marketing:"Marketing",ops:"Operations",sales:"Sales",data:"Data"};
+
+  /* ---------------- state ---------------- */
+  var KEY="genami.v1";
+  function todayKey(d){d=d||new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+  function defaultState(){
+    var s={name:"Michael F.",role:"Marketing lead",enrolled:{},certs:{},points:0,activity:{},rsvp:{},saved:{},subs:{}};
+    var e=function(id,done){s.enrolled[id]={done:done,at:Date.now()};};
+    e("prompting",[0,1,2,3]); e("automate",[0]); e("marketing",[0,1]);
+    var t=new Date(),i;
+    for(i=1;i<=6;i++){var d=new Date(t.getTime()-i*86400000);s.activity[todayKey(d)]=25+((i*13)%40);}
+    s.activity[todayKey(t)]=35;
+    s.points=s.enrolled.prompting.done.length*10;
+    return s;
+  }
+  var S;
+  try{ S=JSON.parse(localStorage.getItem(KEY))||defaultState(); }catch(e){ S=defaultState(); }
+  if(!S||!S.enrolled) S=defaultState();
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(S)); }catch(e){} }
+  function byId(id){ for(var i=0;i<CAT.length;i++){ if(CAT[i].id===id) return CAT[i]; } return null; }
+  function enrollOf(id){ return S.enrolled[id]||null; }
+  function doneList(id){ var e=enrollOf(id); return e?e.done:[]; }
+  function pctOf(id){ var c=byId(id); if(!c) return 0; return Math.round(doneList(id).length/c.lessons.length*100); }
+  function isDone(id,i){ return doneList(id).indexOf(i)>-1; }
+  function durOf(c){ return c.lessons.reduce(function(a,l){return a+l.m;},0); }
+  function certOf(id){ return S.certs[id]||null; }
+  function lessonsDone(){ var n=0,id; for(id in S.enrolled){ n+=S.enrolled[id].done.length; } return n; }
+  function coursesInProgress(){ var n=0,id; for(id in S.enrolled){ var c=byId(id); if(c&&S.enrolled[id].done.length<c.lessons.length) n++; } return n; }
+  function addPoints(n){ S.points+=n; save(); }
+  function addActivity(min){ var k=todayKey(); S.activity[k]=(S.activity[k]||0)+min; save(); }
+  function streak(){
+    var n=0,d=new Date();
+    if(!S.activity[todayKey(d)]) d=new Date(d.getTime()-86400000);
+    while(S.activity[todayKey(d)]){ n++; d=new Date(d.getTime()-86400000); }
+    return n;
+  }
+  function fmtDate(ts){ var d=new Date(ts); return d.getDate()+" "+["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getMonth()]+" "+d.getFullYear(); }
+  function toast(msg){
+    var t=document.getElementById("toast");
+    t.textContent=msg; t.classList.add("show");
+    clearTimeout(t._h); t._h=setTimeout(function(){t.classList.remove("show");},2600);
+  }
+
+  var CK='<svg class="tb" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>';
+  var TRACKC={foundations:["var(--acid)","var(--ink)","var(--ink)"],content:["var(--red)","#fff","var(--acid)"],marketing:["var(--blue)","var(--ink)","var(--ink)"],ops:["var(--ink)","#fff","var(--acid)"],sales:["#3E8E5A","#fff","var(--acid)"],data:["var(--blue-d)","var(--ink)","var(--ink)"]};
+  var lastQ="";
+
+  function ccard(id,i){
+    var c=byId(id), e=enrollOf(id), tc=TRACKC[c.track];
+    var done=e.done.length, tot=c.lessons.length, pct=Math.round(done/tot*100);
+    var dark=(tc[1]==="#fff");
+    return '<button class="cc" data-course="'+id+'" style="background:'+tc[0]+';color:'+tc[1]+'">'+
       '<span class="no">'+String(i+1).padStart(2,"0")+'</span><h3>'+esc(c.t)+'</h3>'+
-      '<div class="track"><div class="fill"></div></div>'+
-      '<div class="ft"><span>'+esc(c.d)+' &middot; '+esc(c.left)+'</span><span class="go">'+tb("arrow-up-right",13)+'</span></div></button>';
+      '<div class="track" style="background:'+(dark?"rgba(255,255,255,0.22)":"rgba(17,18,20,0.16)")+'"><div class="fill" style="background:'+tc[2]+'"></div></div>'+
+      '<div class="ft"><span>'+pct+'% &middot; lesson '+Math.min(done+1,tot)+' of '+tot+'</span><span class="go">'+tb("arrow-up-right",13)+'</span></div></button>';
+  }
+  function catcard(c,i){
+    var e=enrollOf(c.id), tc=TRACKC[c.track], dark=(tc[1]==="#fff");
+    var body;
+    if(e){
+      var done=e.done.length, tot=c.lessons.length, pct=Math.round(done/tot*100);
+      body='<div class="track" style="background:'+(dark?"rgba(255,255,255,0.22)":"rgba(17,18,20,0.16)")+'"><div class="fill" style="background:'+tc[2]+'"></div></div>'+
+        '<div class="ft"><span>'+(pct>=100?"Completed":pct+"% &middot; continue")+'</span><span class="go">'+tb("arrow-up-right",13)+'</span></div>';
+    }else{
+      body='<div class="ft"><span>'+c.lessons.length+' lessons &middot; '+durOf(c)+' min &middot; '+esc(c.price)+'</span><span class="go">'+tb("circle-plus",13)+'</span></div>';
+    }
+    return '<button class="cc" data-course="'+c.id+'" style="background:'+tc[0]+';color:'+tc[1]+'">'+
+      '<span class="no">'+esc(TRACKN[c.track])+'</span><h3>'+esc(c.t)+'</h3>'+body+'</button>';
   }
   function rcard(r){
-    return '<button class="rec" data-course="'+esc(r.t)+'">'+
+    var saved=!!S.saved[r.id];
+    return '<div class="rec"><button class="recbtn" data-rec="'+r.id+'" style="all:unset;cursor:pointer;display:block;width:100%">'+
       '<span class="thumb" style="background-image:url('+PHOTOS[r.img]+')">'+
       (r.tag?'<span class="tag lab">'+esc(r.tag)+'</span>':'')+
       '<span class="play">'+tb("player-play",12)+'</span><span class="dur">'+esc(r.dur)+'</span></span>'+
       '<span class="rb"><h3>'+esc(r.t)+'</h3><span class="au">'+esc(r.au)+'</span>'+
-      '<span class="rm"><span class="st">'+tb("star",12)+r.r.toFixed(1)+' ('+r.n+')</span><span class="price">'+esc(r.pr)+'</span></span></span></button>';
+      '<span class="rm"><span class="st">'+tb("star",12)+r.r.toFixed(1)+' ('+r.n+')</span><span class="price">'+esc(r.pr)+'</span></span></span></button>'+
+      '<button class="savebtn'+(saved?" on":"")+'" data-save="'+r.id+'" aria-label="Save" title="'+(saved?"Saved":"Save for later")+'">'+tb("bookmarks",14)+'</button></div>';
   }
-  function fill(){document.querySelectorAll(".cc[data-p]").forEach(function(c){var b=c.querySelector(".fill");
-    if(b)requestAnimationFrame(function(){b.style.width=c.dataset.p+"%";});});}
+  function fill(){document.querySelectorAll(".cc[data-course]").forEach(function(c){
+    var id=c.dataset.course, e=enrollOf(id); if(!e) return;
+    var b=c.querySelector(".fill"); if(!b) return;
+    var tot=byId(id).lessons.length;
+    requestAnimationFrame(function(){b.style.width=Math.round(e.done.length/tot*100)+"%";});});}
+  function rail(){
+    document.getElementById("profName").textContent=S.name;
+    document.getElementById("profRole").textContent=S.role;
+    document.getElementById("profPts").textContent=S.points;
+    document.getElementById("figDays").textContent=streak();
+    document.getElementById("figPts").textContent=S.points;
+    document.getElementById("figDone").textContent=lessonsDone();
+    document.getElementById("stStreak").textContent=String(streak()).padStart(2,"0");
+    document.getElementById("stDone").textContent=String(lessonsDone()).padStart(2,"0");
+    document.getElementById("stCerts").textContent=String(Object.keys(S.certs).length).padStart(2,"0");
+    document.getElementById("miniProgress").textContent=coursesInProgress();
+    var done=0,id; for(id in S.enrolled){ var c=byId(id); if(c&&enrollOf(id).done.length>=c.lessons.length) done++; }
+    document.getElementById("miniDone").textContent=done;
+    var prog=coursesInProgress();
+    document.getElementById("heroSub").textContent=prog?prog+" course"+(prog>1?"s":"")+" in progress. Pick up where you left off.":"Browse the catalog and enroll to start your streak.";
+  }
   function paint(q){
-    q=(q||"").trim().toLowerCase();
-    var hit=function(s){return !q||String(s).toLowerCase().indexOf(q)>-1;};
-    var c=ENROLLED.slice(0,3).filter(function(x){return hit(x.t);});
-    var r=RECS.slice(0,3).filter(function(x){return hit(x.t)||hit(x.au);});
-    document.getElementById("cont").innerHTML=c.length?c.map(ccard).join(""):'<div class="lite" style="grid-column:1/-1">Nothing matches.</div>';
-    document.getElementById("recs").innerHTML=r.length?r.map(rcard).join(""):'<div class="lite" style="grid-column:1/-1">Nothing matches.</div>';
+    lastQ=(q||"").trim();
+    rail();
+    var ql=lastQ.toLowerCase();
+    var hit=function(s){return !ql||String(s).toLowerCase().indexOf(ql)>-1;};
+    var prog=[],id;
+    for(id in S.enrolled){ var c=byId(id); if(c&&enrollOf(id).done.length<c.lessons.length&&hit(c.t)) prog.push(id); }
+    prog.sort(function(a,b){ return pctOf(b)-pctOf(a); });
+    document.getElementById("cont").innerHTML=prog.length?prog.slice(0,3).map(ccard).join(""):
+      (lastQ?'<div class="lite" style="grid-column:1/-1">Nothing matches "'+esc(lastQ)+'".</div>'
+            :'<div class="lite" style="grid-column:1/-1"><h3>Start your first course</h3>Enroll in a course and it will wait for you here, exactly where you stopped.<div style="margin-top:14px"><button class="pill pbtn" data-go="courses">Browse courses</button></div></div>');
+    var sugg=CAT.filter(function(c){ return !S.enrolled[c.id]&&hit(c.t+" "+TRACKN[c.track]); }).slice(0,3);
+    document.getElementById("recs").innerHTML=sugg.length?sugg.map(catcard).join(""):'<div class="lite" style="grid-column:1/-1">You are enrolled in everything that matches.</div>';
+    var fc=document.getElementById("allc");
+    if(fc){
+      var list=CAT.filter(function(c){ return hit(c.t+" "+TRACKN[c.track]+" "+c.lvl); });
+      fc.innerHTML=list.length?list.map(catcard).join(""):'<div class="lite" style="grid-column:1/-1">No course matches "'+esc(lastQ)+'".</div>';
+    }
+    var fl=document.getElementById("allr");
+    if(fl){
+      var libs=RECS.filter(function(r){ return hit(r.t+" "+r.au); });
+      fl.innerHTML=libs.length?libs.map(rcard).join(""):'<div class="lite" style="grid-column:1/-1">Nothing in the library matches.</div>';
+    }
     icons();requestAnimationFrame(fill);
   }
   function paintRest(){
-    document.getElementById("allc").innerHTML=ENROLLED.map(ccard).join("");
-    document.getElementById("allr").innerHTML=RECS.map(rcard).join("");
+    rail();
     document.getElementById("liveb").innerHTML=LIVE.map(function(l){
-      return '<tr><td><b style="font-weight:700">'+esc(l.t)+'</b>'+(l.live?' <span class="lab" style="color:#FF4612">Live</span>':'')+'</td>'+
-      '<td style="color:var(--mute)">'+esc(l.d)+'</td><td>'+esc(l.time)+'</td><td style="text-align:right"><button class="pill">'+(l.live?"Join":"Reserve")+'</button></td></tr>';}).join("");
-    document.getElementById("workb").innerHTML=WORK.map(function(w){
-      var col=w.s==="Graded"?"#3E8E5A":w.s==="In review"?"#C48A00":"#6B6E74";
-      return '<tr><td><b style="font-weight:700">'+esc(w.t)+'</b></td><td style="color:var(--mute)">'+esc(w.c)+'</td>'+
-      '<td style="color:'+col+';font-weight:700">'+esc(w.s)+'</td><td style="text-align:right" class="sr" style="font-size:16px">'+esc(w.g)+'</td></tr>';}).join("");
-    document.getElementById("certb").innerHTML=CERTS.map(function(c){
-      return '<tr><td><b style="font-weight:700">'+esc(c.t)+'</b></td><td style="color:var(--mute)">'+esc(c.d)+'</td>'+
-      '<td class="sr" style="font-size:17px">'+esc(c.g)+'</td><td style="text-align:right"><button class="pill">Download</button></td></tr>';}).join("");
+      var on=!!S.rsvp[l.id];
+      var action=l.live?'<button class="pill pbtn" data-join="'+esc(l.t)+'">Join</button>'
+        :'<button class="pill'+(on?" pbtn acid":"")+'" data-rsvp="'+l.id+'">'+(on?"Reserved":"Reserve")+'</button>';
+      return '<tr><td><b style="font-weight:700">'+esc(l.t)+'</b>'+(l.live?' <span class="lab" style="color:var(--red)">Live</span>':'')+'</td>'+
+      '<td style="color:var(--mute)">'+esc(l.d)+'</td><td>'+esc(l.time)+'</td><td style="text-align:right">'+action+'</td></tr>';}).join("");
+    var asgs=Object.keys(S.enrolled).map(function(id){ return byId(id); }).filter(Boolean);
+    document.getElementById("workb").innerHTML=asgs.length?asgs.map(function(c){
+      var sub=S.subs[c.id];
+      var st=sub?"In review":(pctOf(c.id)>=100?"Ready to submit":"Not started");
+      var col=sub?"#C48A00":(st==="Ready to submit"?"#3E8E5A":"#6B6E74");
+      return '<tr><td><b style="font-weight:700">'+esc(c.asg.split(":")[0].split(".")[0])+'</b><div style="font-size:11.5px;color:var(--mute);margin-top:3px;max-width:44ch">'+esc(c.asg)+'</div></td>'+
+      '<td style="color:var(--mute)">'+esc(c.t)+'</td>'+
+      '<td style="color:'+col+';font-weight:700">'+st+'</td><td style="text-align:right"><button class="pill" data-course="'+c.id+'">Open</button></td></tr>';}).join("")
+      :'<tr><td colspan="4" style="color:var(--mute)">Enroll in a course to unlock its final assignment.</td></tr>';
+    var earned=Object.keys(S.certs).map(function(id){ return {id:id,c:byId(id),at:S.certs[id]}; }).filter(function(x){return x.c;});
+    document.getElementById("certb").innerHTML=earned.length?earned.map(function(x){
+      return '<tr><td><b style="font-weight:700">'+esc(x.c.t)+'</b></td><td style="color:var(--mute)">'+fmtDate(x.at)+'</td>'+
+      '<td class="sr" style="font-size:17px">Pass</td><td style="text-align:right"><button class="pill pbtn" data-certview="'+x.id+'">View</button></td></tr>';}).join("")
+      :'<tr><td colspan="4" style="color:var(--mute)">Finish every lesson in a course and your certificate appears here, automatically.</td></tr>';
     icons();requestAnimationFrame(fill);
   }
 
-  /* weekly streak strip */
+  /* weekly activity strip */
   var wo=0;
   function days(){
     var b=new Date(); b.setDate(b.getDate()-((b.getDay()+6)%7)+wo*7);
-    var ti=(new Date().getDay()+6)%7, h="";
+    var tKey=todayKey(), h="";
     for(var i=0;i<7;i++){
       var d=new Date(b.getFullYear(),b.getMonth(),b.getDate()+i);
-      var cls=(wo===0&&i===ti)?"sel":((wo===0?i<ti:i<4)?"on":"");
-      h+='<button class="day '+cls+'"><span class="dn">'+DOW[i]+'</span><span class="dd">'+d.getDate()+'</span></button>';
+      var k=todayKey(d), act=!!S.activity[k];
+      var cls=(k===tKey)?"sel":(act?"on":"");
+      h+='<button class="day '+cls+'" title="'+(act?S.activity[k]+" min of activity":"no activity")+'"><span class="dn">'+DOW[i]+'</span><span class="dd">'+d.getDate()+'</span></button>';
     }
     document.getElementById("days").innerHTML=h;
-    document.getElementById("wl").textContent=(4+wo)+"/4 Weeks";
+    document.getElementById("wl").textContent=wo===0?"This week":(wo===-1?"Last week":(-wo)+" weeks ago");
   }
 
-  /* watch time rows */
+  /* activity rows */
   function rows(){
-    var mx=6, pk=WATCH.reduce(function(a,x,i){return x.h>WATCH[a].h?i:a;},0);
-    document.getElementById("rows").innerHTML=WATCH.map(function(w,i){
-      var v=Math.floor(w.h)+":"+String(Math.round((w.h%1)*60)).padStart(2,"0");
-      return '<div class="row'+(i===pk?' hi':'')+'"><span class="d">'+w.d+'</span>'+
+    var mode=document.getElementById("m3").textContent.trim();
+    var items=[],mx=1,i,d,k;
+    if(mode==="Month"){
+      for(i=3;i>=0;i--){
+        var mon=new Date(); mon.setDate(mon.getDate()-((mon.getDay()+6)%7)-i*7);
+        var sum=0;
+        for(var j=0;j<7;j++){ d=new Date(mon.getFullYear(),mon.getMonth(),mon.getDate()+j); sum+=(S.activity[todayKey(d)]||0); }
+        items.push({d:i===0?"This wk":DOW[0]+" "+mon.getDate(),h:sum});
+      }
+    }else{
+      var mon=new Date(); mon.setDate(mon.getDate()-((mon.getDay()+6)%7));
+      for(i=0;i<7;i++){
+        d=new Date(mon.getFullYear(),mon.getMonth(),mon.getDate()+i);
+        k=todayKey(d);
+        items.push({d:DOW[i],h:S.activity[k]||0});
+      }
+    }
+    items.forEach(function(x){ if(x.h>mx)mx=x.h; });
+    document.getElementById("rows").innerHTML=items.map(function(w,i2){
+      var v=w.h>=60?Math.floor(w.h/60)+"h "+(w.h%60)+"m":Math.round(w.h)+"m";
+      var pk=items.reduce(function(a,x,i3){return x.h>items[a].h?i3:a;},0);
+      return '<div class="row'+(w.h>0&&i2===pk?' hi':'')+'"><span class="d">'+w.d+'</span>'+
         '<span class="bar"><i style="--t:'+(w.h/mx*100)+'%"></i></span><span class="v">'+v+'</span></div>';}).join("");
     requestAnimationFrame(function(){
       document.querySelectorAll("#rows .bar i").forEach(function(e){e.style.width=e.style.getPropertyValue("--t");});
     });
   }
 
-  var TT={home:"Overview",courses:"Courses",library:"Library",live:"Live",work:"Assignments",certs:"Certificates",tutor:"AI Tutor",settings:"Settings"};
-  function go(p){
-    document.querySelectorAll("#nav button").forEach(function(b){b.setAttribute("aria-current",b.dataset.p===p?"true":"false");});
+  /* ---------- course / lesson / certificate pages ---------- */
+  function openCourse(id){ location.hash="#/dashboard/course/"+id; }
+  function openLesson(cid,i){ location.hash="#/dashboard/lesson/"+cid+"/"+i; }
+  function openCert(id){ location.hash="#/dashboard/certificate/"+id; }
+  function enroll(id){
+    if(!S.enrolled[id]){ S.enrolled[id]={done:[],at:Date.now()}; save(); toast("Enrolled in "+byId(id).t); paintRest(); }
+    renderCourse(id); go("course");
+  }
+  function completeLesson(cid,i){
+    var c=byId(cid), e=enrollOf(cid);
+    if(!e){ S.enrolled[cid]={done:[],at:Date.now()}; e=S.enrolled[cid]; }
+    var firstTime=e.done.indexOf(i)===-1;
+    if(firstTime){ e.done.push(i); addPoints(10); addActivity(c.lessons[i].m); }
+    var finished=e.done.length>=c.lessons.length;
+    if(finished&&!S.certs[cid]){ S.certs[cid]=Date.now(); addPoints(50); toast("Course complete. Certificate earned."); }
+    else if(firstTime){ toast("Lesson complete. +10 points"); }
+    save(); rail(); paintRest();
+    renderLesson(cid,Math.min(i+1,c.lessons.length-1));
+  }
+  function renderCourse(id){
+    var c=byId(id); if(!c){ go("courses"); return; }
+    var e=enrollOf(id), done=e?e.done.length:0, tot=c.lessons.length, pct=Math.round(done/tot*100);
+    var h='<button class="crumb" data-go="courses">&larr; All courses</button>'+
+      '<div class="c-hero t-'+c.track+'">'+
+        '<span class="lab" style="color:var(--mute)">'+esc(TRACKN[c.track])+' &middot; '+esc(c.lvl)+'</span>'+
+        '<h1>'+esc(c.t)+'</h1><p class="blurb">'+esc(c.blurb)+'</p>'+
+        '<div class="c-meta">'+
+          '<span><b>'+tot+'</b>lessons</span><span><b>'+durOf(c)+'m</b>total</span>'+
+          '<span><b>'+c.r.toFixed(1)+'</b>rating ('+c.n+')</span><span><b>'+esc(c.price)+'</b>access</span></div>'+
+        '<div style="display:flex;gap:10px;flex-wrap:wrap">'+
+        (pct>=100?'<button class="pbtn acid" data-certview="'+id+'">'+tb("certificate",15)+' View certificate</button>'
+         : e?'<button class="pbtn acid" data-lesson="'+id+':'+Math.min(done,tot-1)+'">Continue &middot; lesson '+Math.min(done+1,tot)+'</button>'
+            :'<button class="pbtn" data-enroll="'+id+'">'+tb("circle-plus",15)+' Enroll'+(c.price==="Free"?" free":"")+'</button>')+
+        '</div></div>'+
+      '<div class="sec" style="padding:0"><div class="bh" style="margin-bottom:10px"><h2>Syllabus</h2><span class="lab" style="color:var(--mute)">'+done+' / '+tot+' done</span></div>'+
+      '<div class="l-list">'+
+      c.lessons.map(function(l,i){
+        var d=e&&e.done.indexOf(i)>-1;
+        return '<button class="l-row'+(d?" done":"")+'" data-lesson="'+id+':'+i+'">'+
+          '<span class="no">'+String(i+1).padStart(2,"0")+'</span>'+
+          '<span class="ti"><b>'+esc(l.t)+'</b><small>'+l.m+' min</small></span>'+
+          '<span class="ck">'+CK+'</span></button>';}).join("")+
+      '</div></div>'+
+      '<div class="asg"><span class="st lab" style="color:var(--mute)">Final assignment</span><h3>'+esc(c.asg)+'</h3>'+
+      (S.subs[id]
+        ?'<p class="set-note" style="color:#C48A00;font-weight:700">Submitted '+fmtDate(S.subs[id].at)+' &middot; in review</p><p class="set-note" style="background:var(--page);border-radius:10px;padding:12px 14px">'+esc(S.subs[id].text)+'</p>'
+        :'<textarea id="asgText" placeholder="Write or paste your submission here..."></textarea><div><button class="pill pbtn" data-submit-asg="'+id+'">Submit assignment</button></div>')+
+      '</div>';
+    document.getElementById("pvCourse").innerHTML=h;
+    icons();
+  }
+  function renderLesson(cid,i){
+    var c=byId(cid); if(!c){ go("courses"); return; }
+    if(i<0||i>=c.lessons.length) i=0;
+    var l=c.lessons[i], done=isDone(cid,i), last=(i===c.lessons.length-1);
+    var h='<button class="crumb" data-course="'+cid+'">&larr; '+esc(c.t)+'</button>'+
+      '<div class="lp"><span class="kicker">'+esc(TRACKN[c.track])+' &middot; lesson '+(i+1)+' of '+c.lessons.length+' &middot; '+l.m+' min '+(done?' &middot; <span style="color:var(--ink);background:var(--acid);border-radius:6px;padding:1px 8px">done</span>':'')+'</span>'+
+      '<h1>'+esc(l.t)+'</h1><div class="l-body">'+l.b+'</div>'+
+      '<div class="l-foot">'+
+        (i>0?'<button class="pbtn ghost" data-lesson="'+cid+':'+(i-1)+'">'+tb("chevron-left",14)+' Previous</button>':'<span></span>')+
+        '<span class="sp"></span>'+
+        (last
+          ?'<button class="pbtn ghost" data-course="'+cid+'">Back to course</button>'
+          :'')+
+        (done
+          ?(last?'':'<button class="pbtn acid" data-lesson="'+cid+':'+(i+1)+'">Next lesson '+tb("chevron-right",14)+'</button>')
+          :'<button class="pbtn acid" data-complete="'+cid+':'+i+'">'+CK.replace('class="tb"','')+' Mark complete'+(last?" &amp; finish":"")+'</button>')+
+      '</div></div>';
+    document.getElementById("pvLesson").innerHTML=h;
+    icons();
+  }
+  function renderCert(cid){
+    var c=byId(cid), at=certOf(cid);
+    if(!c||!at){ go("certs"); return; }
+    var certId="GEN-"+cid.toUpperCase().replace(/-/g,"")+"-"+new Date(at).getFullYear();
+    document.getElementById("pvCert").innerHTML=
+      '<button class="crumb" data-go="certs">&larr; All certificates</button>'+
+      '<div class="cert"><span class="cl">Genami &middot; Certificate of completion</span>'+
+      '<h1>'+esc(c.t)+'</h1>'+
+      '<p class="set-note" style="margin:0 auto">This certifies that</p>'+
+      '<div class="who">'+esc(S.name)+'</div>'+
+      '<p class="set-note" style="margin:6px auto 0">has completed all '+c.lessons.length+' lessons of the course, including the final assignment.</p>'+
+      '<div class="seal">'+tb("rosette-discount-check",26)+'</div>'+
+      '<div class="meta"><span>Issued '+fmtDate(at)+'</span><span>ID '+certId+'</span><span>Verify: off-plate.github.io/genami</span></div>'+
+      '<div style="margin-top:24px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">'+
+      '<button class="pbtn" data-print>Print / save PDF</button>'+
+      '<button class="pbtn ghost" data-course="'+cid+'">Back to course</button></div></div>';
+    icons();
+  }
+
+  var TT={home:"Overview",courses:"Courses",library:"Library",live:"Live",work:"Assignments",certs:"Certificates",tutor:"AI Tutor",settings:"Settings",course:"Course",lesson:"Lesson",certview:"Certificate"};
+  function go(p,customTtl){
+    document.querySelectorAll("#nav button").forEach(function(b){b.setAttribute("aria-current",(b.dataset.p===p)?"true":"false");});
+    if(p==="course"||p==="lesson"||p==="certview"){
+      document.querySelectorAll("#nav button").forEach(function(b){b.setAttribute("aria-current","false");});
+    }
     document.querySelectorAll(".pv").forEach(function(v){v.hidden=v.dataset.v!==p;});
-    document.getElementById("ttl").textContent=TT[p]||"Overview";
+    document.getElementById("ttl").textContent=customTtl||TT[p]||"Overview";
     if(p==="home"||p==="courses")requestAnimationFrame(fill);
     if(p==="tutor")openChat();
   }
@@ -1382,14 +1817,21 @@
   function route(){
     var h = location.hash.replace(/^#\/?/, "");
     if(h === "dashboard" || h.indexOf("dashboard/") === 0){
-      var v = h.slice(10) || "home";
-      if(VIEWS.indexOf(v) < 0) v = "home";
+      var rest = h.slice(10) || "home";
+      var parts = rest.split("/");
       if(app.hidden){
         siteScroll = window.scrollY;
         showApp();
       }
-      go(v);
-      document.title = "Genami · " + (TT[v] || "Overview");
+      if(parts[0]==="course"&&parts[1]){ renderCourse(parts[1]); go("course", byId(parts[1])?byId(parts[1]).t:"Course"); }
+      else if(parts[0]==="lesson"&&parts[1]&&parts[2]!==undefined){ renderLesson(parts[1],parseInt(parts[2],10)||0); var lc=byId(parts[1]); go("lesson", lc?lc.lessons[parseInt(parts[2],10)||0].t:"Lesson"); }
+      else if(parts[0]==="certificate"&&parts[1]){ renderCert(parts[1]); go("certview", "Certificate"); }
+      else{
+        var v = parts[0] || "home";
+        if(VIEWS.indexOf(v) < 0) v = "home";
+        go(v);
+        document.title = "Genami · " + (TT[v] || "Overview");
+      }
     }else{
       if(!app.hidden){
         showSite();
@@ -1412,6 +1854,83 @@
   });
   document.getElementById("dLogo").addEventListener("click", function(){ location.hash = "#/"; });
 
+  /* ---------- interactions: enroll, lessons, certs, rsvp, saves, assignments ---------- */
+  document.addEventListener("click", function(e){
+    var el;
+    if((el=e.target.closest("[data-enroll]"))){ enroll(el.dataset.enroll); return; }
+    if((el=e.target.closest("[data-complete]"))){
+      var p=el.dataset.complete.split(":"); completeLesson(p[0],parseInt(p[1],10)); return; }
+    if((el=e.target.closest("[data-lesson]"))){
+      var q=el.dataset.lesson.split(":"); openLesson(q[0],parseInt(q[1],10)); return; }
+    if((el=e.target.closest("[data-course]"))){ openCourse(el.dataset.course); return; }
+    if((el=e.target.closest("[data-certview]"))){ openCert(el.dataset.certview); return; }
+    if((el=e.target.closest("[data-print]"))){ window.print(); return; }
+    if((el=e.target.closest("[data-rsvp]"))){
+      var id=el.dataset.rsvp; S.rsvp[id]=!S.rsvp[id]; save(); paintRest();
+      toast(S.rsvp[id]?"Reserved. See you there.":"Reservation removed."); return; }
+    if((el=e.target.closest("[data-join]"))){ toast("The live room opens 5 minutes before start."); return; }
+    if((el=e.target.closest("[data-save]"))){
+      var rid=el.dataset.save; S.saved[rid]=!S.saved[rid]; save();
+      el.classList.toggle("on",S.saved[rid]);
+      toast(S.saved[rid]?"Saved to your library.":"Removed from saved."); return; }
+    if((el=e.target.closest("[data-submit-asg]"))){
+      var cid=el.dataset.submitAsg, ta=document.getElementById("asgText");
+      if(!ta||!ta.value.trim()){ toast("Write a few sentences first."); return; }
+      S.subs[cid]={text:ta.value.trim(),at:Date.now()}; save(); paintRest();
+      toast("Assignment submitted. In review."); openCourse(cid); return; }
+    if((el=e.target.closest("[data-qcourse]"))){
+      location.hash="#/dashboard/course/"+el.dataset.qcourse; closeQ(); return; }
+    if((el=e.target.closest("[data-qlesson]"))){
+      var lp=el.dataset.qlesson.split(":"); openLesson(lp[0],parseInt(lp[1],10)); closeQ(); return; }
+    if(!e.target.closest(".search")) closeQ();
+  });
+
+  /* ---------- global search dropdown ---------- */
+  var searchLabel=document.querySelector(".gd .top .search");
+  var qdrop=document.createElement("div"); qdrop.className="qdrop";
+  searchLabel.style.position="relative";
+  searchLabel.appendChild(qdrop);
+  function closeQ(){ qdrop.classList.remove("open"); }
+  document.getElementById("q").addEventListener("focus",function(){ if(qdrop.innerHTML) qdrop.classList.add("open"); });
+  document.getElementById("q").addEventListener("input",function(){
+    paint(this.value);
+    var ql=this.value.trim().toLowerCase();
+    if(!ql){ closeQ(); qdrop.innerHTML=""; return; }
+    var hit=function(s){ return String(s).toLowerCase().indexOf(ql)>-1; };
+    var cs=CAT.filter(function(c){ return hit(c.t)||hit(TRACKN[c.track]); }).slice(0,4);
+    var ls=[];
+    CAT.forEach(function(c){ c.lessons.forEach(function(l,i){
+      if(ls.length<4&&hit(l.t)) ls.push({cid:c.id,i:i,ct:c.t,t:l.t}); }); });
+    var rs=RECS.filter(function(r){ return hit(r.t); }).slice(0,2);
+    if(!cs.length&&!ls.length&&!rs.length){ qdrop.innerHTML='<div class="qh">No matches. Try a topic like "invoices" or "social".</div>'; }
+    else{
+      qdrop.innerHTML=
+        (cs.length?'<div class="qh">Courses</div>'+cs.map(function(c){ return '<button data-qcourse="'+c.id+'">'+tb("book",14)+esc(c.t)+'<small>'+esc(TRACKN[c.track])+'</small></button>'; }).join(""):"")+
+        (ls.length?'<div class="qh">Lessons</div>'+ls.map(function(l){ return '<button data-qlesson="'+l.cid+':'+l.i+'">'+tb("player-play",14)+esc(l.t)+'<small>'+esc(l.ct)+'</small></button>'; }).join(""):"")+
+        (rs.length?'<div class="qh">Library</div>'+rs.map(function(r){ return '<button data-go="library">'+tb("bookmarks",14)+esc(r.t)+'<small>'+esc(r.dur)+'</small></button>'; }).join(""):"");
+    }
+    qdrop.classList.add("open"); icons();
+  });
+
+  /* ---------- settings ---------- */
+  var setName=document.getElementById("setName"), setRole=document.getElementById("setRole");
+  setName.value=S.name; setRole.value=S.role;
+  document.getElementById("setSave").addEventListener("click",function(){
+    S.name=setName.value.trim()||S.name; S.role=setRole.value.trim()||S.role;
+    save(); rail(); toast("Profile updated.");
+  });
+  document.getElementById("setExport").addEventListener("click",function(){
+    var blob=new Blob([JSON.stringify(S,null,2)],{type:"application/json"});
+    var a=document.createElement("a");
+    a.href=URL.createObjectURL(blob); a.download="genami-backup-"+todayKey()+".json";
+    document.body.appendChild(a); a.click(); a.remove();
+  });
+  document.getElementById("setReset").addEventListener("click",function(){
+    if(confirm("Wipe all progress, certificates and settings? This cannot be undone.")){
+      localStorage.removeItem(KEY); location.hash="#/dashboard"; location.reload();
+    }
+  });
+
   /* ==========================================================
      AI TUTOR — real Claude calls via the sample capability
      ========================================================== */
@@ -1427,11 +1946,13 @@
   var busy = false, ctl = null;
 
   var RULES =
-    "You are the AI tutor inside Genami, an online learning platform that teaches practical, job-ready skills. " +
-    "The learner is Michael, a marketing lead. His enrolled courses and progress: " +
-    ENROLLED.map(function(c){ return c.t + " (" + c.d + ", " + c.left + ")"; }).join("; ") + ". " +
+    "You are the AI tutor inside Genami, an online learning platform that teaches practical AI skills to small business owners and marketing teams. " +
+    "The learner is " + S.name + ", " + S.role + ". Enrolled courses and progress: " +
+    Object.keys(S.enrolled).map(function(id){ var c=byId(id); if(!c) return null;
+      var e=enrollOf(id), tot=c.lessons.length, done=e.done.length;
+      return c.t + " (" + Math.round(done/tot*100) + "% complete, next: " + c.lessons[Math.min(done,tot-1)].t + ")"; }).filter(Boolean).join("; ") + ". " +
     "Answer as a friendly, concrete tutor. Be brief: 2-4 short paragraphs at most, plain text, no markdown headings or bullet symbols. " +
-    "Never invent courses that are not listed. If asked what to study next, use his actual progress.";
+    "Never invent courses that are not listed. If asked what to study next, use the actual progress.";
 
   var SUGGESTIONS = [
     "What should I study next?",
@@ -1477,21 +1998,24 @@
   var TUTOR_TOOLS = [
     {
       name: "get_progress",
-      description: "Returns the learner's enrolled Genami courses with percent complete and current lesson. Use before advising what to study next.",
+      description: "Returns the learner's enrolled Genami courses with percent complete and the next lesson. Use before advising what to study next.",
       execute: function(){
-        return ENROLLED.map(function(c){ return {course:c.t, progress:c.d, percentComplete:c.p, timeLeft:c.left}; });
+        return Object.keys(S.enrolled).map(function(id){ var c=byId(id); if(!c) return null;
+          var e=enrollOf(id), tot=c.lessons.length, done=e.done.length;
+          return {course:c.t, percentComplete:Math.round(done/tot*100), lessonsDone:done+" / "+tot,
+                  nextLesson:c.lessons[Math.min(done,tot-1)].t}; }).filter(Boolean);
       }
     },
     {
       name: "open_course",
-      description: "Opens one of the learner's courses in the Genami dashboard so they can see it. Pass the exact course title. Returns confirmation.",
+      description: "Opens one of the learner's Genami courses in the dashboard. Pass the exact course title. Returns confirmation.",
       inputSchema: {type:"object", properties:{title:{type:"string", description:"Exact course title"}}, required:["title"]},
       execute: function(input){
-        var title = String(input.title || "");
-        var found = ENROLLED.filter(function(c){ return c.t.toLowerCase() === title.toLowerCase(); })[0];
-        if(!found) throw new Error("No enrolled course called " + title);
-        go("courses");
-        return "Opened " + found.t + " (" + found.d + ", " + found.left + ").";
+        var title = String(input.title || "").toLowerCase();
+        var found = CAT.filter(function(c){ return c.t.toLowerCase() === title; })[0];
+        if(!found) throw new Error("No course called " + input.title);
+        openCourse(found.id);
+        return "Opened " + found.t + " (" + found.lessons.length + " lessons).";
       }
     }
   ];
